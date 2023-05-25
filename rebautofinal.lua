@@ -230,7 +230,7 @@ teleport() -- Call the function once initially
 while true do
     wait(7)
     teleport() -- Call the function again every 7 seconds
-end
+end  
 end)   
         
             --AUTO BLOCK--
@@ -665,38 +665,6 @@ if game.PlaceId == 5151400895 then
                 autoToggle = true
                 if not scriptRunning then
                     scriptRunning = true
-                        
-                        spawn(function)
-local player = game:GetService("Players").LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-
-local function teleport()
-    local playerId = player.UserId
-    local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
-    local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
-    local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
-    local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
-
-    if strength < 120000000 and energy < 120000000 and defense < 120000000 and speed < 120000000 then
-        local success, error = pcall(function()
-            local args = {[1] = "Earth"}
-            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-        end)
-
-        if not success then
-            warn("Failed to invoke server function:", error)
-        end
-    end
-end
-
-teleport() -- Call the function once initially
-
-while true do
-    wait(7)
-    teleport() -- Call the function again every 7 seconds
-end
-end)
-                        
                 spawn(function()
                 _G.blocking = true
                 
@@ -1044,26 +1012,45 @@ end)
     })
     
     
-    local Reb = true
-    
-    local function clickLoop()
-        while Reb do 
-            wait()
+local Reb = false
+local clickLoopThread = nil
+
+local function clickLoop()
+    while Reb do 
+        wait()
+        local player = game.Players.LocalPlayer
+        local rebValue = game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value
+
+        game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+
+        while rebValue >= game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value do
             game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+            wait(0.01)
         end
+        wait(1.5)
+
+        local args = {
+            [1] = "Earth"
+        }
+
+        game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
     end
-    
-    Page.Toggle({
-        Text = "Rebirth",
-        Callback = function(value)
-            print(value)
-            if value == true then
-                Reb = true
-                coroutine.wrap(clickLoop)()
-            else
-                Reb = false
-            end
-        end,
-        Enabled = true
-    })
-    end
+end
+
+Page.Toggle({
+    Text = "Rebirth",
+    Callback = function(value)
+        print(value)
+        Reb = value
+
+        if Reb then
+            clickLoopThread = coroutine.create(clickLoop)
+            coroutine.resume(clickLoopThread)
+        elseif clickLoopThread ~= nil then
+            coroutine.yield(clickLoopThread)
+            clickLoopThread = nil
+        end
+    end,
+    Enabled = true
+})
+end
