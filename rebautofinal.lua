@@ -1032,9 +1032,11 @@ local function clickLoop()
         local args = {
             [1] = "Earth"
         }
-
+        while true do
         game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+       wait(2)
     end
+  end
 end
 
 Page.Toggle({
