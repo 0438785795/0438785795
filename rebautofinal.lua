@@ -203,29 +203,35 @@ if game.PlaceId == 3311165597 then
         end)
     
         spawn(function() 
-                local player = game:GetService("Players").LocalPlayer
-                local character = player.Character or player.CharacterAdded:Wait()
-                    
-                local function teleport()
-                local playerId = player.UserId
-                local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
-                local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
-                local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
-                local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
-                    
-                if strength > 120000000 and energy > 120000000 and defense > 120000000 and speed > 120000000 then
-                    local args = {[1] = "Vills Planet"}
-                        game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-                    end
-                end
-                    
-                teleport() -- call the function once initially
-                    
-                while true do
-                    wait(7)
-                    teleport() -- call the function again every 2 seconds
-                end    
-            end)   
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local function teleport()
+    local playerId = player.UserId
+    local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
+    local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
+    local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
+    local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
+
+    if strength > 120000000 and energy > 120000000 and defense > 120000000 and speed > 120000000 then
+        local success, error = pcall(function()
+            local args = {[1] = "Vills Planet"}
+            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            warn("Failed to invoke server function:", error)
+        end
+    end
+end
+
+teleport() -- Call the function once initially
+
+while true do
+    wait(7)
+    teleport() -- Call the function again every 7 seconds
+end 
+end)   
         
             --AUTO BLOCK--
         spawn(function()
