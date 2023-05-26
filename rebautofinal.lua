@@ -439,7 +439,7 @@ end)
                                                 local ev2 =
                                                 {
                                                     ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                    ["FaceMouse"] = false
+                                                    ["FaceMouse"] = true
                                                 }
     
                                                 _G.PlayedSound = false
@@ -881,7 +881,7 @@ if game.PlaceId == 5151400895 then
                                                 local ev2 =
                                                 {
                                                     ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                    ["FaceMouse"] = false
+                                                    ["FaceMouse"] = true
                                                 }
     
                                                 _G.PlayedSound = false
