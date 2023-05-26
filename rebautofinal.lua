@@ -438,7 +438,7 @@ end)
                                                 local Event = game:GetService("ReplicatedStorage").Package.Events.mel
                                                 local ev2 =
                                                 {
-                                                    ["MouseHit"] = CFrame.new(1374.38293, 18.4018955, 1128.27454, 0.653480172, -0.157526895, 0.740370929, -0, 0.978105783, 0.208109155, -0.756943643, -0.135995209, 0.639172673),
+                                                    ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                     ["FaceMouse"] = false
                                                 }
     
@@ -519,7 +519,7 @@ end)
                                                                [1] = "Energy Volley",
                                                                [2] = {
                                                                ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             },
                                                                [3] = "Blacknwhite27"
                                                            }
@@ -531,7 +531,7 @@ end)
                                                                [2] = true,
                                                                [4] = {
                                                                ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             }
                                                         }
 
@@ -542,11 +542,18 @@ end)
                                                                [2] = false,
                                                                [3] = true,
                                                                [4] = {
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             }
                                                         }
 
                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
+                                                                            
+                                                                local args = {
+                                                                [1] = "Destruction Orb",
+                                                                [2] = CFrame.new(humanoidRootPart.Position)
+                                                               }
+
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -873,7 +880,7 @@ if game.PlaceId == 5151400895 then
                                                 local Event = game:GetService("ReplicatedStorage").Package.Events.mel
                                                 local ev2 =
                                                 {
-                                                    ["MouseHit"] = CFrame.new(1374.38293, 18.4018955, 1128.27454, 0.653480172, -0.157526895, 0.740370929, -0, 0.978105783, 0.208109155, -0.756943643, -0.135995209, 0.639172673),
+                                                    ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                     ["FaceMouse"] = false
                                                 }
     
@@ -951,7 +958,7 @@ if game.PlaceId == 5151400895 then
                                                                [1] = "Energy Volley",
                                                                [2] = {
                                                                ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             },
                                                                [3] = "Blacknwhite27"
                                                            }
@@ -963,7 +970,7 @@ if game.PlaceId == 5151400895 then
                                                                [2] = true,
                                                                [4] = {
                                                                ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             }
                                                         }
 
@@ -974,11 +981,18 @@ if game.PlaceId == 5151400895 then
                                                                [2] = false,
                                                                [3] = true,
                                                                [4] = {
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(-1.22813, -1.02317, -1.84114),
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
                                                             }
                                                         }
 
                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
+                                                                            
+                                                                local args = {
+                                                                [1] = "Destruction Orb",
+                                                                [2] = CFrame.new(humanoidRootPart.Position)
+                                                               }
+
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
