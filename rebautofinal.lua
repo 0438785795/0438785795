@@ -396,7 +396,6 @@ end)
                             workspace.Others.NPCs["SSJ2 Wukong"],
                             workspace.Others.NPCs["Perfect Atom"],
                             workspace.Others.NPCs["Chilly"],
-                            workspace.Others.NPCs["Super Vegetable"],
                             workspace.Others.NPCs["Top X Fighter"],
                             workspace.Others.NPCs["Mapa"],
                             workspace.Others.NPCs["Radish"],
