@@ -528,35 +528,6 @@ end)
                                                            }
 
                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
-
-                                                            local args = {
-                                                               [1] = "Destruction Orb",
-                                                               [2] = true,
-                                                               [4] = {
-                                                               ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            }
-                                                        }
-
-                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
-
-                                                            local args = {
-                                                               [1] = "Destruction Orb",
-                                                               [2] = false,
-                                                               [3] = true,
-                                                               [4] = {
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            }
-                                                        }
-
-                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
-                                                                            
-                                                                local args = {
-                                                                [1] = "Destruction Orb",
-                                                                [2] = CFrame.new(humanoidRootPart.Position)
-                                                               }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
@@ -985,35 +956,6 @@ if game.PlaceId == 5151400895 then
                                                            }
 
                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
-
-                                                            local args = {
-                                                               [1] = "Destruction Orb",
-                                                               [2] = true,
-                                                               [4] = {
-                                                               ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            }
-                                                        }
-
-                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
-
-                                                            local args = {
-                                                               [1] = "Destruction Orb",
-                                                               [2] = false,
-                                                               [3] = true,
-                                                               [4] = {
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            }
-                                                        }
-
-                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("BigBall"):InvokeServer(unpack(args))
-                                                                            
-                                                                local args = {
-                                                                [1] = "Destruction Orb",
-                                                                [2] = CFrame.new(humanoidRootPart.Position)
-                                                               }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
