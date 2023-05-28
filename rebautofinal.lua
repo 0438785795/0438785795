@@ -346,9 +346,9 @@ end)
                 wait()
                 if game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
                     repeat wait() until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
-                    wait(1)
+                    wait()
                     transform()
-                    wait(6)
+                    wait(4)
                 end
             end
         end)
