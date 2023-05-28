@@ -1015,7 +1015,7 @@ local function clickLoop()
             game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
             wait(0.01)
         end
-        wait(1.5)
+        wait(0.5)
 
         local args = {
             [1] = "Earth"
