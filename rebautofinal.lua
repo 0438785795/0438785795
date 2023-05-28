@@ -228,7 +228,7 @@ end
 teleport() -- Call the function once initially
 
 while true do
-    wait(7)
+    wait()
     teleport() -- Call the function again every 7 seconds
 end 
 end)   
