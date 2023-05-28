@@ -762,9 +762,9 @@ if game.PlaceId == 5151400895 then
             local function restartScript()
                  local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
                  if humanoid then
+                    equipRemote:InvokeServer("Godly SSJ2")
                     humanoid.Health = 0
                     wait(5)
-                    equipRemote:InvokeServer("Godly SSJ2")
                     repeat
                         wait()
                         if player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
