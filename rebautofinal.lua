@@ -355,7 +355,7 @@ end)
         
         Spawn(function()
             plr.CharacterRemoving:Connect(function()
-                wait(1.5)
+                wait(0.8)
                 transform()
             end)
         end)
