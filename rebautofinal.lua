@@ -557,6 +557,17 @@ end)
                                                                }
 
                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
+                                                                            
+                                                                 local args = {
+                                                                 [1] = "Destruction",
+                                                                 [2] = {
+                                                                 ["FaceMouse"] = true,
+                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
+                                                                 },
+                                                                 [3] = "Blacknwhite27"
+                                                                }
+
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -1003,6 +1014,17 @@ if game.PlaceId == 5151400895 then
                                                                }
 
                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
+                                                                            
+                                                                 local args = {
+                                                                 [1] = "Destruction",
+                                                                 [2] = {
+                                                                 ["FaceMouse"] = true,
+                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
+                                                                 },
+                                                                 [3] = "Blacknwhite27"
+                                                                }
+
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
