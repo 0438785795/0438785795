@@ -346,16 +346,16 @@ end)
                 wait()
                 if game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
                     repeat wait() until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
-                    wait()
+                    wait(1)
                     transform()
-                    wait(4)
+                    wait(6)
                 end
             end
         end)
         
         Spawn(function()
             plr.CharacterRemoving:Connect(function()
-                wait(3)
+                wait(1.5)
                 transform()
             end)
         end)
