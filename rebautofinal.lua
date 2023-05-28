@@ -765,9 +765,13 @@ if game.PlaceId == 5151400895 then
                     humanoid.Health = 0
                     wait(5)
                     equipRemote:InvokeServer("Godly SSJ2")
-                    wait()
-                    transform:InvokeServer()
-                    transform:InvokeServer()
+                    repeat
+                        wait()
+                        if player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+                            transform:InvokeServer()
+                        end
+                    until player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
+
                     wait(1.75)
                     equipRemote:InvokeServer("Ultra Ego")
                     transform:InvokeServer()
