@@ -781,7 +781,9 @@ if game.PlaceId == 5151400895 then
 
             -- Connect the diedConnection
             local success, error = pcall(function()
+            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                 diedConnection = player.Character.Humanoid.Died:Connect(onPlayerDied)
+                end
             end)
 
             if not success then
