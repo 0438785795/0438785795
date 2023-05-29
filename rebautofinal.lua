@@ -430,8 +430,7 @@ end)
                                                     "High Power Rush",
                                                     "Meteor Charge",
                                                     "Meteor Strike",
-                                                    "Vital Strike",
-                                                    "Vanish Strike"
+                                                    "Vital Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
@@ -870,8 +869,7 @@ if game.PlaceId == 5151400895 then
                                                     "High Power Rush",
                                                     "Meteor Charge",
                                                     "Meteor Strike",
-                                                    "Vital Strike",
-                                                    "Vanish Strike"
+                                                    "Vital Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
