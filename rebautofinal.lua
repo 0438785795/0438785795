@@ -540,15 +540,6 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-                                                                            
-                                                                 local args = {
-                                                                 [1] = "Blacknwhite27",
-                                                                 [2] = 1
-                                                                }
-
-                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("p"):FireServer(unpack(args))
-
                                                                 Event:InvokeServer(move, m6)
                                                             end
                                                         end)
@@ -979,14 +970,7 @@ if game.PlaceId == 5151400895 then
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-                                                                            
-                                                                 local args = {
-                                                                 [1] = "Blacknwhite27",
-                                                                 [2] = 1
-                                                                }
-
-                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("p"):FireServer(unpack(args))
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
