@@ -430,7 +430,9 @@ end)
                                                     "High Power Rush",
                                                     "Meteor Charge",
                                                     "Meteor Strike",
-                                                    "Vital Strike"
+                                                    "Vital Strike",
+                                                    "Spirit Breaking Cannon",
+                                                    "Bone Crusher"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
@@ -539,6 +541,13 @@ end)
                                                                 }
 
                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+                                                                            
+                                                                 local args = {
+                                                                 [1] = "Blacknwhite27",
+                                                                 [2] = 1
+                                                                }
+
+                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("p"):FireServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -971,6 +980,13 @@ if game.PlaceId == 5151400895 then
                                                                 }
 
                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+                                                                            
+                                                                 local args = {
+                                                                 [1] = "Blacknwhite27",
+                                                                 [2] = 1
+                                                                }
+
+                                                                  game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("p"):FireServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
