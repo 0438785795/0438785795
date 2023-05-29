@@ -736,72 +736,77 @@ if game.PlaceId == 5151400895 then
                 --AUTO MODE--
             spawn(function()
             -- Formstack
-            local transform = game:GetService("ReplicatedStorage").Package.Events.ta
-            local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
+        local transform = game:GetService("ReplicatedStorage").Package.Events.ta
+        local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
-            local player = game.Players.LocalPlayer
+        local player = game.Players.LocalPlayer
 
-            local function restartScript()
-                 local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
-                 if humanoid then
-                    equipRemote:InvokeServer("Godly SSJ2")
-                    humanoid.Health = 0
-                    wait(5)
-                    repeat
-                        wait()
-                        if player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
-                            transform:InvokeServer()
-                        end
-                    until player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
-
-                    wait(1.75)
-                    equipRemote:InvokeServer("Ultra Ego")
-                    transform:InvokeServer()
-                    transform:InvokeServer()
-                    spawn(function()
-                        equipRemote:InvokeServer("SSJBUI")
+        local function restartScript()
+            local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid") -- FindFirstChildOfClass instead of FindFirstChild
+            if humanoid then
+                equipRemote:InvokeServer("Godly SSJ2")
+                humanoid.Health = 0
+                wait(5)
+                  repeat
+                    wait()
+                    if player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
                         transform:InvokeServer()
-                        transform:InvokeServer()
-                    end)
-                end
-            end
-
-            local diedConnection
-
-            local function onPlayerDied()
-                diedConnection:Disconnect()
-                wait(6)
-                if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
-                    restartScript()
-                end
-            end
-
-            -- Start the script
-            restartScript()
-
-            -- Connect the diedConnection
-            local success, error = pcall(function()
-                diedConnection = player.Character.Humanoid.Died:Connect(onPlayerDied)
-            end)
-
-            if not success then
-                warn("Error connecting diedConnection:", error)
-            end
-
-            -- Function to restart the script when "Ultra Ego" or "SSJBUI" transformation is unequipped
-            local function restartOnUnequip()
-                while true do
-                    if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
-                        wait(1)
-                        if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
-                            restartScript()
-                        end
                     end
-                    wait(1)
-                end
-            end
+                until player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
 
-            spawn(restartOnUnequip)
+                wait(1.75)
+                equipRemote:InvokeServer("Ultra Ego")
+                transform:InvokeServer()
+                transform:InvokeServer()
+                spawn(function()
+                    equipRemote:InvokeServer("SSJBUI")
+                    transform:InvokeServer()
+                    transform:InvokeServer()
+                end)
+            end
+        end
+
+        local diedConnection
+
+        local function onPlayerDied()
+            diedConnection:Disconnect()
+            wait(6)
+            if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
+                restartScript()
+            end
+        end
+
+        -- Start the script
+        restartScript()
+
+        -- Connect the diedConnection
+        local success, error = pcall(function()
+            diedConnection = player.CharacterAdded:Connect(function(character)
+                local humanoid = character:WaitForChild("Humanoid", 5) -- Wait for the Humanoid to exist
+                if humanoid then
+                    diedConnection = humanoid.Died:Connect(onPlayerDied)
+                end
+            end)
+        end)
+
+        if not success then
+            warn("Error connecting diedConnection:", error)
+        end
+
+        -- Function to restart the script when "Ultra Ego" or "SSJBUI" transformation is unequipped
+        local function restartOnUnequip()
+            while true do
+                if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
+                    wait(1)
+                    if not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
+                        restartScript()
+                    end
+                end
+                wait(1)
+            end
+        end
+
+        spawn(restartOnUnequip)
         end)
 
         
