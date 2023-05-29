@@ -429,7 +429,9 @@ end)
                                                     "Spirit Barrage",
                                                     "High Power Rush",
                                                     "Meteor Charge",
-                                                    "Meteor Strike"       
+                                                    "Meteor Strike",
+                                                    "Vital Strike",
+                                                    "Vanish Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
@@ -867,7 +869,9 @@ if game.PlaceId == 5151400895 then
                                                     "Spirit Barrage",
                                                     "High Power Rush",
                                                     "Meteor Charge",
-                                                    "Meteor Strike"
+                                                    "Meteor Strike",
+                                                    "Vital Strike",
+                                                    "Vanish Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
