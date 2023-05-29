@@ -429,7 +429,6 @@ end)
                                                     "Spirit Barrage",
                                                     "High Power Rush",
                                                     "Meteor Charge",
-                                                    "Meteor Strike",
                                                     "Vital Strike",
                                                     "Spirit Breaking Cannon",
                                                     "Bone Crusher"
@@ -868,7 +867,6 @@ if game.PlaceId == 5151400895 then
                                                     "Spirit Barrage",
                                                     "High Power Rush",
                                                     "Meteor Charge",
-                                                    "Meteor Strike",
                                                     "Vital Strike"
                                                 }
     
