@@ -428,7 +428,8 @@ end)
                                                     "God Slicer",
                                                     "Spirit Barrage",
                                                     "High Power Rush",
-                                                    "Meteor Charge"
+                                                    "Meteor Charge",
+                                                    "Meteor Strike"       
                                                 }
     
                                                 local m6 = "Blacknwhite27"
@@ -865,7 +866,8 @@ if game.PlaceId == 5151400895 then
                                                     "God Slicer",
                                                     "Spirit Barrage",
                                                     "High Power Rush",
-                                                    "Meteor Charge"
+                                                    "Meteor Charge",
+                                                    "Meteor Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
