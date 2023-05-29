@@ -428,8 +428,6 @@ end)
                                                     "God Slicer",
                                                     "Spirit Barrage",
                                                     "High Power Rush",
-                                                    "Meteor Charge",
-                                                    "Vital Strike",
                                                     "Spirit Breaking Cannon",
                                                     "Bone Crusher"
                                                 }
