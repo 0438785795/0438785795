@@ -376,17 +376,15 @@ end)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
                   end) 
                     spawn(function()
-                        local player = game.Players.LocalPlayer
-                        local maxKi = player.Character.Stats.Ki.MaxValue
-    
-                        local player = game.Players.LocalPlayer
-                        local maxKi = player.Character.Stats.Ki.MaxValue
-    
-                        local humanoidRootPart
-                        repeat
-                          humanoidRootPart =  game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
-                           wait()
-                        until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                     local player = game.Players.LocalPlayer
+                     local maxKi = player.Character.Stats.Ki.MaxValue
+
+                     local humanoidRootPart
+
+                     repeat
+                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                       wait()
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
@@ -819,14 +817,15 @@ if game.PlaceId == 5151400895 then
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
                   end) 
                     spawn(function()
-                        local player = game.Players.LocalPlayer
-                        local maxKi = player.Character.Stats.Ki.MaxValue
-    
-                        local humanoidRootPart
-                        repeat
-                          humanoidRootPart =  game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
-                           wait()
-                        until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                     local player = game.Players.LocalPlayer
+                     local maxKi = player.Character.Stats.Ki.MaxValue
+
+                     local humanoidRootPart
+
+                     repeat
+                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                       wait()
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
