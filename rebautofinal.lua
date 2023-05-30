@@ -850,7 +850,7 @@ if game.PlaceId == 5151400895 then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
                                     for _, boss in ipairs(bosses) do
-                                        if boss.Name ~= lastBoss and workspace:FindFirstChild("Living") and workspace.Living:FindFirstChild(boss.Name) and workspace.Living:FindFirstChild(player.Name) and (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
+                                        if boss.Name ~= lastBoss and workspace:FindFirstChild("Living") and workspace.Living:FindFirstChild(boss.Name) and workspace.Living:FindFirstChild(player.Name) then
                                             game:GetService("ReplicatedStorage").Package.Events.Qaction:InvokeServer(boss)
                                             if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == boss.Name then
                                                 _G.Looping = true
@@ -863,8 +863,8 @@ if game.PlaceId == 5151400895 then
                                                     "God Slicer",
                                                     "Spirit Barrage",
                                                     "High Power Rush",
-                                                    "Meteor Charge",
-                                                    "Vital Strike"
+                                                    "Spirit Breaking Cannon",
+                                                    "Bone Crusher"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
@@ -898,14 +898,18 @@ if game.PlaceId == 5151400895 then
                                                     end
     
                                                     -- Check if ki value is less than 25% of maximum value
-                                                    if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.10 then
+                                                    if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.25 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
                                                             if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
+                                                            if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
+                                                            _G.Looping = false
+                                                            break
+                                                            end
                                                             wait()
                                                         end
                                                     end
-                                                end   
+                                                end
     
                                                     if not workspace.Living:FindFirstChild(boss.Name) then
                                                         repeat
@@ -919,6 +923,9 @@ if game.PlaceId == 5151400895 then
                                                         wait()
                                                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
+                                                    local humanoidRootPart
+                                                    local bossModel
+
                                                     -- Find the boss with a matching name
                                                     for _, bossModel in ipairs(workspace.Living:GetChildren()) do
                                                      if bossModel.Name == boss.Name then
@@ -964,8 +971,6 @@ if game.PlaceId == 5151400895 then
                                                                  },
                                                                  [3] = "Blacknwhite27"
                                                                 }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
