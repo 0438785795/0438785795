@@ -382,9 +382,9 @@ end)
                      local humanoidRootPart
 
                      repeat
-                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game:GetService("Workspace").Living[player.Name].Stats
+                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart 
                        wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game:GetService("Workspace").Living[player.Name].Stats
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart 
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
@@ -409,7 +409,7 @@ end)
     
                         while autoToggle do
                             wait()
-                            if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
+                            if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) and game:GetService("Workspace").Living[player.Name].Stats then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
                                     for _, boss in ipairs(bosses) do
@@ -846,7 +846,7 @@ if game.PlaceId == 5151400895 then
     
                         while autoToggle do
                             wait()
-                            if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
+                            if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) and game:GetService("Workspace").Living[player.Name].Stats then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
                                     for _, boss in ipairs(bosses) do
