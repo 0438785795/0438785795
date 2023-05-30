@@ -863,8 +863,8 @@ if game.PlaceId == 5151400895 then
                                                     "God Slicer",
                                                     "Spirit Barrage",
                                                     "High Power Rush",
-                                                    "Spirit Breaking Cannon",
-                                                    "Bone Crusher"
+                                                    "Meteor Charge",
+                                                    "Vital Strike"
                                                 }
     
                                                 local m6 = "Blacknwhite27"
