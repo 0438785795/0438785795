@@ -402,14 +402,13 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
+                        local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
+                        local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value
+                        local energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
     
                         while autoToggle do
                             wait()
-                           if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -553,7 +552,6 @@ end)
                                 end
                             end
                         end
-                      end 
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
@@ -841,14 +839,13 @@ if game.PlaceId == 5151400895 then
                 workspace.Others.NPCs["Vegetable (GoD in-training)"],
                         }
                         local lastBoss = ""
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
+                        local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
+                        local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value
+                        local energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
     
                         while autoToggle do
                             wait()
-                           if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -987,7 +984,6 @@ if game.PlaceId == 5151400895 then
                                 end
                             end
                         end
-                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
