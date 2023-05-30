@@ -952,16 +952,6 @@ if game.PlaceId == 5151400895 then
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
-                                                            local args = {
-                                                               [1] = "Energy Volley",
-                                                               [2] = {
-                                                               ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            },
-                                                               [3] = "Blacknwhite27"
-                                                           }
-
-                                                               game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
