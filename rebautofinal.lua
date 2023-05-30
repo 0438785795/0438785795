@@ -409,6 +409,7 @@ end)
     
                         while autoToggle do
                             wait()
+                           if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -552,6 +553,7 @@ end)
                                 end
                             end
                         end
+                      end 
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
@@ -846,6 +848,7 @@ if game.PlaceId == 5151400895 then
     
                         while autoToggle do
                             wait()
+                           if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -984,6 +987,7 @@ if game.PlaceId == 5151400895 then
                                 end
                             end
                         end
+                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
