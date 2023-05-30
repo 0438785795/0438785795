@@ -382,9 +382,9 @@ end)
                      local humanoidRootPart
 
                      repeat
-                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart 
+                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
                        wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart 
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
@@ -461,10 +461,9 @@ end)
                                                     end
     
                                                     -- Check if ki value is less than 25% of maximum value
-                                                    if player.Character.Stats then
                                                     if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.25 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
-                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
+                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
                                                             if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                                             _G.Looping = false
@@ -474,7 +473,6 @@ end)
                                                         end
                                                     end
                                                 end
-                                             end
     
                                                     if not workspace.Living:FindFirstChild(boss.Name) then
                                                         repeat
@@ -825,9 +823,9 @@ if game.PlaceId == 5151400895 then
                      local humanoidRootPart
 
                      repeat
-                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game:GetService("Workspace").Living[player.Name].Stats
+                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
                        wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game:GetService("Workspace").Living[player.Name].Stats
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
@@ -900,16 +898,14 @@ if game.PlaceId == 5151400895 then
                                                     end
     
                                                     -- Check if ki value is less than 25% of maximum value
-                                                    if player.Character.Stats then
                                                     if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.10 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
-                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
+                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
                                                             wait()
                                                         end
                                                     end
-                                                end 
-                                             end
+                                                end   
     
                                                     if not workspace.Living:FindFirstChild(boss.Name) then
                                                         repeat
