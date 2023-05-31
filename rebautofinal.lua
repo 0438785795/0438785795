@@ -939,6 +939,7 @@ if game.PlaceId == 5151400895 then
                                                     end
     
                                                     for _, move in ipairs(moves) do
+                                                            spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
                                                                             
@@ -953,7 +954,6 @@ if game.PlaceId == 5151400895 then
 
                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
                                                                             
-                                                               spawn(function()
                                                                     
                                                                  local args = {
                                                                  [1] = "Destruction",
