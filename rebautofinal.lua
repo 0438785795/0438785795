@@ -463,7 +463,7 @@ end)
                                                     -- Check if ki value is less than 25% of maximum value
                                                     if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.25 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
-                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
+                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
                                                             if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                                             _G.Looping = false
@@ -515,6 +515,16 @@ end)
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
+                                                            local args = {
+                                                               [1] = "Energy Volley",
+                                                               [2] = {
+                                                               ["FaceMouse"] = true,
+                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
+                                                            },
+                                                               [3] = "Blacknwhite27"
+                                                           }
+
+                                                               game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
@@ -890,16 +900,12 @@ if game.PlaceId == 5151400895 then
                                                     -- Check if ki value is less than 25% of maximum value
                                                     if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.10 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
-                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
+                                                            if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
-                                                            if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
-                                                            _G.Looping = false
-                                                            break
-                                                            end
                                                             wait()
                                                         end
                                                     end
-                                                end
+                                                end   
     
                                                     if not workspace.Living:FindFirstChild(boss.Name) then
                                                         repeat
@@ -913,9 +919,6 @@ if game.PlaceId == 5151400895 then
                                                         wait()
                                                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
-                                                    local humanoidRootPart
-                                                    local bossModel
-
                                                     -- Find the boss with a matching name
                                                     for _, bossModel in ipairs(workspace.Living:GetChildren()) do
                                                      if bossModel.Name == boss.Name then
@@ -939,11 +942,10 @@ if game.PlaceId == 5151400895 then
                                                     end
     
                                                     for _, move in ipairs(moves) do
-                                                            spawn(function()
+                                                        spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
-                                                                            
-                                                               local args = {
+                                                            local args = {
                                                                [1] = "Energy Volley",
                                                                [2] = {
                                                                ["FaceMouse"] = true,
@@ -954,7 +956,6 @@ if game.PlaceId == 5151400895 then
 
                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
                                                                             
-                                                                    
                                                                  local args = {
                                                                  [1] = "Destruction",
                                                                  [2] = {
@@ -963,6 +964,8 @@ if game.PlaceId == 5151400895 then
                                                                  },
                                                                  [3] = "Blacknwhite27"
                                                                 }
+
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
