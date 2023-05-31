@@ -514,7 +514,7 @@ end)
                                                     for _, move in ipairs(moves) do
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
-                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
+                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
@@ -934,7 +934,7 @@ if game.PlaceId == 5151400895 then
                                                     for _, move in ipairs(moves) do
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
-                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 then
+                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                             local args = {
                                                                [1] = "Energy Volley",
                                                                [2] = {
