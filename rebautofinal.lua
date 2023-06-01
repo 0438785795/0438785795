@@ -378,13 +378,19 @@ end)
                     spawn(function()
                      local player = game.Players.LocalPlayer
                      local maxKi = player.Character.Stats.Ki.MaxValue
-
+                     
                      local humanoidRootPart
 
                      repeat
-                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
-                       wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                     local livingFolder = game:GetService("Workspace").Living
+                     local playerFolder = livingFolder:FindFirstChild(player.Name)
+
+                     if playerFolder then
+                        humanoidRootPart = playerFolder.HumanoidRootPart
+                     end
+
+                     wait()
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
@@ -813,9 +819,15 @@ if game.PlaceId == 5151400895 then
                      local humanoidRootPart
 
                      repeat
-                        humanoidRootPart = game:GetService("Workspace").Living[player.Name] and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
-                       wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                     local livingFolder = game:GetService("Workspace").Living
+                     local playerFolder = livingFolder:FindFirstChild(player.Name)
+
+                     if playerFolder then
+                        humanoidRootPart = playerFolder.HumanoidRootPart
+                     end
+
+                     wait()
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
     
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
