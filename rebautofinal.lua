@@ -930,12 +930,16 @@ if game.PlaceId == 5151400895 then
                                                     end
 
                                                     if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 2))
-                                                        if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
-                                                      _G.Looping = false
-                                                      break
-                                                     end
-                                                    end
+                                                    local targetCFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 2)
+                                                    local initialCFrame = player.Character.PrimaryPart.CFrame
+                                                    local lerpedCFrame = initialCFrame:Lerp(targetCFrame, 0.5) -- 0.5 is the lerp factor, adjust as needed
+                                                    player.Character:SetPrimaryPartCFrame(lerpedCFrame)
+                                                    if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
+                                                    _G.Looping = false
+                                                    break
+                                                   end
+                                                  end
+
 
     
                                                     if not _G.PlayedSound then
