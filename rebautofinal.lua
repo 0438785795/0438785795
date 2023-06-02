@@ -929,16 +929,13 @@ if game.PlaceId == 5151400895 then
                                                      end
                                                     end
 
-                                                   if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                      local targetCFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 2)
-                                                      player.Character:SetPrimaryPartCFrame(targetCFrame)
-                                                      if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
+                                                    if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
+                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 2))
+                                                        if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                                       _G.Looping = false
-                                                     break
+                                                      break
+                                                     end
                                                     end
-                                                   end
-
-
 
     
                                                     if not _G.PlayedSound then
