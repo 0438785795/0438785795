@@ -467,7 +467,7 @@ end)
                                                     end
     
                                                     -- Check if ki value is less than 25% of maximum value
-                                                    if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.25 then
+                                                    if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.30 then
                                                         while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.35 do
                                                             if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
