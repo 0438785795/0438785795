@@ -932,7 +932,7 @@ if game.PlaceId == 5151400895 then
                                                     if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                     local targetCFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 2)
                                                     local initialCFrame = player.Character.PrimaryPart.CFrame
-                                                    local lerpedCFrame = initialCFrame:Lerp(targetCFrame, 0.9) 
+                                                    local lerpedCFrame = initialCFrame:Lerp(targetCFrame, 0.05) 
                                                     player.Character:SetPrimaryPartCFrame(lerpedCFrame)
                                                     if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                                     _G.Looping = false
