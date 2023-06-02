@@ -937,7 +937,7 @@ if game.PlaceId == 5151400895 then
                                                     local targetCFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 2)
     
                                                     local tweenInfo = TweenInfo.new(
-                                                     0.1, -- Very low duration (in seconds)
+                                                     1, -- Very low duration (in seconds)
                                                      Enum.EasingStyle.Linear -- Linear easing style
                                                     )
     
