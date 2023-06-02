@@ -409,10 +409,10 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local strength = game.ReplicatedStorage.Datas[player.UserId].Strength.Value
+                        local speed = game.ReplicatedStorage.Datas[player.UserId].Speed.Value
+                        local defence = game.ReplicatedStorage.Datas[player.UserId].Defense.Value
+                        local energy = game.ReplicatedStorage.Datas[player.UserId].Energy.Value
     
                         while autoToggle do
                             wait()
