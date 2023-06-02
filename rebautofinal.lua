@@ -520,17 +520,7 @@ end)
                                                     for _, move in ipairs(moves) do
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
-                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                            local args = {
-                                                               [1] = "Energy Volley",
-                                                               [2] = {
-                                                               ["FaceMouse"] = true,
-                                                               ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                            },
-                                                               [3] = "Blacknwhite27"
-                                                           }
-
-                                                               game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("voleys"):InvokeServer(unpack(args))
+                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then)
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
