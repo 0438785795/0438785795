@@ -60,11 +60,10 @@ if game.PlaceId == 3311165597 then
                 if not scriptRunning then
                     scriptRunning = true
         local function checkConditions(player)
-        local playerId = player.UserId
-        local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
-        local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
-        local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
-        local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
+        local strength = game:GetService("Workspace").Living[player].Stats.Strength.Value
+        local speed = game:GetService("Workspace").Living[player].Stats.Speed.Value
+        local defence = game:GetService("Workspace").Living[player].Stats.Defense.Value
+        local energy = game:GetService("Workspace").Living[player].Stats.Energy.Value
         return strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000
     end
     
@@ -409,11 +408,10 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
-                        local playerId = player.UserId
-                        local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
-                        local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
-                        local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
-                        local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
+                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
+                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
+                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
+                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
     
                         while autoToggle do
                             wait()
