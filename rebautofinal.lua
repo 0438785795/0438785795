@@ -59,88 +59,89 @@ if game.PlaceId == 3311165597 then
                 autoToggle = true
                 if not scriptRunning then
                     scriptRunning = true
-        local function checkConditions(player)
-        local strength = game:GetService("Workspace").Living[player].Stats.Strength.Value
-        local speed = game:GetService("Workspace").Living[player].Stats.Speed.Value
-        local defence = game:GetService("Workspace").Living[player].Stats.Defense.Value
-        local energy = game:GetService("Workspace").Living[player].Stats.Energy.Value
-        return strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000
+    local function checkConditions(player)
+    local strength = game.ReplicatedStorage.Datas[player.UserId].Strength.Value
+    local speed = game.ReplicatedStorage.Datas[player.UserId].Speed.Value
+    local defence = game.ReplicatedStorage.Datas[player.UserId].Defense.Value
+    local energy = game.ReplicatedStorage.Datas[player.UserId].Energy.Value
+    return strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000
+end
+
+-- Set the player name to the local player's name
+local playerName = game.Players.LocalPlayer.Name
+
+local continueLoop = true -- Flag variable to control the loop
+
+while continueLoop do
+    -- Check if the player is alive
+    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+        -- Wait for the player to respawn
+        repeat
+            wait()
+        until game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+        wait(2)
+        continueLoop = true -- Restart the loop after respawning
     end
-    
-    -- Set the player name to the local player's name
-    local playerName = game.Players.LocalPlayer.Name
-    
-    local continueLoop = true -- Flag variable to control the loop
-    
-    while continueLoop do
-        -- Check if the player is alive
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
-            -- Wait for the player to respawn
-            repeat
-                wait()
-            until game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-            wait(2)
-            continueLoop = true -- Restart the loop after respawning
+
+    -- Check if the player's ki value is below 10% of the maximum ki value
+    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
+        local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
+        local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
+        if kiValue < maxKiValue * 0.1 then
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
         end
-    
-        -- Check if the player's ki value is below 10% of the maximum ki value
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
-            local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
-            local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
-            if kiValue < maxKiValue * 0.1 then
-                game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            end
-        end
-        
-    
-        -- First block of code
-        if game:GetService("Workspace").Living[playerName].Stats.Strength.Value < 100000 then
-            local args1 = {
-                [1] = "Blacknwhite27",
-                [2] = 1
-            }
-    
-            game:GetService("ReplicatedStorage").Package.Events.p:FireServer(unpack(args1))
-        end
-    
-        -- Second block of code - only invoke if defense is less than 100,000
-        if game:GetService("Workspace").Living[playerName].Stats.Defense.Value < 100000 then
-            local args2 = {
-                [1] = "Blacknwhite27"
-            }
-    
-            game:GetService("ReplicatedStorage").Package.Events.def:InvokeServer(unpack(args2))
-        end
-    
-        -- Third block of code - only invoke if energy is less than 100,000
-        if game:GetService("Workspace").Living[playerName].Stats.Energy.Value < 100000 then
-            local args3 = {
-                [1] = 1,
-                [2] = true,
-                [3] = CFrame.new(4884.39306640625, 59.267791748046875, 5340.4501953125) * CFrame.Angles(-1.3409267663955688, -1.130136251449585, -1.3176262378692627)
-            }
-    
-            game:GetService("ReplicatedStorage").Package.Events.kb:FireServer(unpack(args3))
-        end
-    
-        -- Fourth block of code
-        if game:GetService("Workspace").Living[playerName].Stats.Speed.Value < 100000 then
-            local args4 = {
-                [1] = "Blacknwhite27"
-            }
-    
-            game:GetService("ReplicatedStorage").Package.Events.ch:InvokeServer(unpack(args4))
-         end
-         
-        -- Check if conditions are met, and break out of the loop if they are
+    end
+
+
+    -- First block of code
+    if game.ReplicatedStorage.Datas[playerName.UserId].Strength.Value < 100000 then
+        local args1 = {
+            [1] = "Blacknwhite27",
+            [2] = 1
+        }
+
+        game:GetService("ReplicatedStorage").Package.Events.p:FireServer(unpack(args1))
+    end
+
+    -- Second block of code - only invoke if defense is less than 100,000
+    if game.ReplicatedStorage.Datas[playerName.UserId].Defense.Value < 100000 then
+        local args2 = {
+            [1] = "Blacknwhite27"
+        }
+
+        game:GetService("ReplicatedStorage").Package.Events.def:InvokeServer(unpack(args2))
+    end
+
+    -- Third block of code - only invoke if energy is less than 100,000
+    if game.ReplicatedStorage.Datas[playerName.UserId].Energy.Value < 100000 then
+        local args3 = {
+            [1] = 1,
+            [2] = true,
+            [3] = CFrame.new(4884.39306640625, 59.267791748046875, 5340.4501953125) * CFrame.Angles(-1.3409267663955688, -1.130136251449585, -1.3176262378692627)
+        }
+
+        game:GetService("ReplicatedStorage").Package.Events.kb:FireServer(unpack(args3))
+    end
+
+    -- Fourth block of code
+    if game.ReplicatedStorage.Datas[playerName.UserId].Speed.Value < 100000 then
+        local args4 = {
+            [1] = "Blacknwhite27"
+        }
+
+        game:GetService("ReplicatedStorage").Package.Events.ch:InvokeServer(unpack(args4))
+     end
+     
+    -- Check if conditions are met, and break out of the loop if they are
     if checkConditions(playerName) then
-    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
         break
     end
-    
+
     -- Wait for a short duration before checking conditions again
     wait()
-    end
+end
+
         --KI--
         spawn(function()
             local targetKi = nil
