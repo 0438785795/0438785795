@@ -468,7 +468,7 @@ end)
     
                                                     -- Check if ki value is less than 25% of maximum value
                                                     if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.20 then
-                                                        while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.25 do
+                                                        while player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.30 do
                                                             if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                             player.Character:SetPrimaryPartCFrame(Workspace.Living[player.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 15))
                                                             if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
@@ -520,7 +520,7 @@ end)
                                                     for _, move in ipairs(moves) do
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
-                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then)
+                                                            if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                                                                             
                                                                  local args = {
                                                                  [1] = "Destruction",
@@ -530,19 +530,6 @@ end)
                                                                  },
                                                                  [3] = "Blacknwhite27"
                                                                 }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-                                                                            
-                                                                 local args = {
-                                                                 [1] = "Soul Punisher",
-                                                                 [2] = {
-                                                                 ["FaceMouse"] = true,
-                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                                 },
-                                                                 [3] = "Blacknwhite27"
-                                                                }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -980,18 +967,7 @@ if game.PlaceId == 5151400895 then
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-                                                                            
-                                                                 local args = {
-                                                                 [1] = "Soul Punisher",
-                                                                 [2] = {
-                                                                 ["FaceMouse"] = true,
-                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                                 },
-                                                                 [3] = "Blacknwhite27"
-                                                                }
-
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
