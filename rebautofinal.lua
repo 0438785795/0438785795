@@ -929,13 +929,27 @@ if game.PlaceId == 5151400895 then
                                                      end
                                                     end
 
+                                                    local TweenService = game:GetService("TweenService")
+                                                    local player = game.Players.LocalPlayer
+                                                    local humanoidRootPart = player.Character.HumanoidRootPart
+
                                                     if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 2))
-                                                        if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
-                                                      _G.Looping = false
-                                                      break
-                                                     end
+                                                    local targetCFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 2)
+    
+                                                    local tweenInfo = TweenInfo.new(
+                                                     0.001, -- Very low duration (in seconds)
+                                                     Enum.EasingStyle.Linear -- Linear easing style
+                                                    )
+    
+                                                     local tween = TweenService:Create(humanoidRootPart, tweenInfo, {CFrame = targetCFrame})
+                                                     tween:Play()
+    
+                                                     if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
+                                                     _G.Looping = false
+                                                     break
                                                     end
+                                                   end
+
 
     
                                                     if not _G.PlayedSound then
