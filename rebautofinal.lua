@@ -388,7 +388,13 @@ end)
                        else
                         print("Character or Stats object not found")
                       end
-                     local humanoidRootPart = game:GetService("Workspace").Living[player.Name].HumanoidRootPart
+                     
+                     local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                     if humanoidRootPart then
+                     -- Use the humanoidRootPart value as needed
+                     else
+                       print("HumanoidRootPart not found")
+                    end
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
