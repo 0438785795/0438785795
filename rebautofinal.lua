@@ -408,14 +408,13 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
+                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
+                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
+                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
+                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
     
                         while autoToggle do
                             wait()
-                            if player.Character and player.Character:FindFirstChild("Stats") then
-                            local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                            local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                            local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                            local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -522,7 +521,6 @@ end)
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                           
                                                                local args = {
                                                                [1] = "Energy Volley",
                                                                [2] = {
@@ -543,7 +541,7 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))   
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -562,7 +560,6 @@ end)
                                 end
                             end
                         end
-                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
@@ -830,18 +827,19 @@ if game.PlaceId == 5151400895 then
                     spawn(function()
                      local player = game.Players.LocalPlayer
                      local maxKi = player.Character.Stats.Ki.MaxValue
-local humanoidRootPart
 
-repeat
-    local livingFolder = game:GetService("Workspace").Living
-    local playerFolder = livingFolder:FindFirstChild(player.Name)
+                     local humanoidRootPart
 
-    if playerFolder then
-        humanoidRootPart = playerFolder.HumanoidRootPart
-    end
+                     repeat
+                     local livingFolder = game:GetService("Workspace").Living
+                     local playerFolder = livingFolder:FindFirstChild(player.Name)
 
-    wait()
-until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and playerFolder and playerFolder:IsDescendantOf(livingFolder)
+                     if playerFolder then
+                        humanoidRootPart = playerFolder.HumanoidRootPart
+                     end
+
+                     wait()
+                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
     
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
@@ -855,14 +853,13 @@ until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and pla
                 workspace.Others.NPCs["Vegetable (GoD in-training)"],
                         }
                         local lastBoss = ""
+                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
+                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
+                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
+                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
     
                         while autoToggle do
                             wait()
-    if player.Character and player.Character:FindFirstChild("Stats") then
-        local strength = livingFolder[player.Name].Stats.Strength.Value
-        local speed = livingFolder[player.Name].Stats.Speed.Value
-        local defense = livingFolder[player.Name].Stats.Defense.Value
-        local energy = livingFolder[player.Name].Stats.Energy.Value
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -1001,7 +998,6 @@ until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and pla
                                 end
                             end
                         end
-                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
