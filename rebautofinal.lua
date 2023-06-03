@@ -830,18 +830,18 @@ if game.PlaceId == 5151400895 then
                     spawn(function()
                      local player = game.Players.LocalPlayer
                      local maxKi = player.Character.Stats.Ki.MaxValue
-                     local humanoidRootPart
+local humanoidRootPart
 
-                   repeat
-                     local livingFolder = game:GetService("Workspace").Living
-                     local playerFolder = livingFolder:FindFirstChild(player.Name)
- 
-                     if playerFolder then
-                      humanoidRootPart = playerFolder.HumanoidRootPart
-                     end
+repeat
+    local livingFolder = game:GetService("Workspace").Living
+    local playerFolder = livingFolder:FindFirstChild(player.Name)
 
-                     wait()
-                    until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and playerFolder and playerFolder:IsDescendantOf(livingFolder)
+    if playerFolder then
+        humanoidRootPart = playerFolder.HumanoidRootPart
+    end
+
+    wait()
+until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and playerFolder and playerFolder:IsDescendantOf(livingFolder)
     
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
@@ -858,11 +858,11 @@ if game.PlaceId == 5151400895 then
     
                         while autoToggle do
                             wait()
-                        if player.Character and player.Character:FindFirstChild("Stats") then
-                        local strength = livingFolder[player.Name].Stats.Strength.Value
-                        local speed = livingFolder[player.Name].Stats.Speed.Value
-                        local defense = livingFolder[player.Name].Stats.Defense.Value
-                        local energy = livingFolder[player.Name].Stats.Energy.Value
+    if player.Character and player.Character:FindFirstChild("Stats") then
+        local strength = livingFolder[player.Name].Stats.Strength.Value
+        local speed = livingFolder[player.Name].Stats.Speed.Value
+        local defense = livingFolder[player.Name].Stats.Defense.Value
+        local energy = livingFolder[player.Name].Stats.Energy.Value
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
