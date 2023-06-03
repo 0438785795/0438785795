@@ -411,11 +411,11 @@ end)
     
                         while autoToggle do
                             wait()
-                        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") then
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                            if player.Character and player.Character:FindFirstChild("Stats") then
+                            local strength = livingFolder[player.Name].Stats.Strength.Value
+                            local speed = livingFolder[player.Name].Stats.Speed.Value
+                            local defense = livingFolder[player.Name].Stats.Defense.Value
+                            local energy = livingFolder[player.Name].Stats.Energy.Value
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
