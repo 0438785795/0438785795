@@ -408,13 +408,14 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
+    
+                        while autoToggle do
+                            wait()
+                        if workspace.Living:FindFirstChild(player.Name).Stats then
                         local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
                         local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
                         local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
                         local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
-    
-                        while autoToggle do
-                            wait()
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
@@ -561,6 +562,7 @@ end)
                                 end
                             end
                         end
+                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
