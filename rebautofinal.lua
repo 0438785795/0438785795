@@ -813,8 +813,19 @@ if game.PlaceId == 5151400895 then
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
                   end) 
                     spawn(function()
-                     local player = game.Players.LocalPlayer
-                     local maxKi = player.Character.Stats.Ki.MaxValue
+                    local player = game.Players.LocalPlayer
+                    if player.Character and player.Character:FindFirstChild("Stats") then
+                       local stats = player.Character.Stats
+                       if stats:FindFirstChild("Ki") then
+                       local maxKi = stats.Ki.MaxValue
+                       -- Use the maxKi value as needed
+                      else
+                       print("Ki object not found")
+                      end
+                       else
+                        print("Character or Stats object not found")
+                      end
+
                      local humanoidRootPart = game:GetService("Workspace").Living[player.Name].HumanoidRootPart
 
                         local bosses = {
