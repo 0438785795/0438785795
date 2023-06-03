@@ -378,19 +378,7 @@ end)
                     spawn(function()
                      local player = game.Players.LocalPlayer
                      local maxKi = player.Character.Stats.Ki.MaxValue
-                     
-                     local humanoidRootPart
-
-                     repeat
-                     local livingFolder = game:GetService("Workspace").Living
-                     local playerFolder = livingFolder:FindFirstChild(player.Name)
-
-                     if playerFolder then
-                        humanoidRootPart = playerFolder.HumanoidRootPart
-                     end
-
-                     wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
+                     local humanoidRootPart = game:GetService("Workspace").Living[player.Name].HumanoidRootPart
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
