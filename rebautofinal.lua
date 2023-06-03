@@ -827,20 +827,8 @@ if game.PlaceId == 5151400895 then
                     spawn(function()
                      local player = game.Players.LocalPlayer
                      local maxKi = player.Character.Stats.Ki.MaxValue
+                     local humanoidRootPart = game:GetService("Workspace").Living[player.Name].HumanoidRootPart
 
-                     local humanoidRootPart
-
-                     repeat
-                     local livingFolder = game:GetService("Workspace").Living
-                     local playerFolder = livingFolder:FindFirstChild(player.Name)
-
-                     if playerFolder then
-                        humanoidRootPart = playerFolder.HumanoidRootPart
-                     end
-
-                     wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
-    
                         local bosses = {
                 workspace.Others.NPCs["Vekuta (SSJBUI)"],
                 workspace.Others.NPCs["Wukong Rose"],
