@@ -411,7 +411,7 @@ end)
     
                         while autoToggle do
                             wait()
-                        if workspace.Living:FindFirstChild(player.Name).Stats then
+                        if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
                         local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
                         local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
                         local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
@@ -859,7 +859,7 @@ if game.PlaceId == 5151400895 then
     
                         while autoToggle do
                             wait()
-                        if workspace.Living:FindFirstChild(player.Name).Stats then           
+                        if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then           
                         local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
                         local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
                         local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
