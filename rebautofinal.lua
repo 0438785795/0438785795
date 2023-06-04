@@ -467,7 +467,7 @@ end)
                                                 _G.PlayedSound = false
     
                                                 while _G.Looping do
-                                                    wait(0.005)
+                                                    
     
                                                     if not player.Character or not player.Character:FindFirstChild("Humanoid") or player.Character.Humanoid.Health <= 0 then
                                                         _G.Looping = false
