@@ -861,12 +861,11 @@ if game.PlaceId == 5151400895 then
                 workspace.Others.NPCs["Vegetable (GoD in-training)"],
                         }
                         local lastBoss = ""
-                        local player = game.Players.LocalPlayer
-                        if player then
-                           local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                           local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                           local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                           local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
+                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
+                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
+                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+
 
     
                         while autoToggle do
@@ -1009,7 +1008,7 @@ if game.PlaceId == 5151400895 then
                                 end
                             end
                         end
-                     end
+             
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
