@@ -1009,9 +1009,7 @@ if game.PlaceId == 5151400895 then
                                 end
                             end
                         end
-                     else
-                      print("Player not found")
-                   end
+                     end
                         
                         scriptRunning = false -- Reset the script execution status
                     end)
