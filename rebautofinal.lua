@@ -526,7 +526,6 @@ end)
                                                         spawn(function()
                                                             -- Check if character is still alive before invoking move
                                                             if player.Character and player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health > 0 and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                                            
                                                             local args = {
                                                                [1] = "Energy Volley",
                                                                [2] = {
@@ -547,8 +546,8 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-                                                                 
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
+
                                                                 Event:InvokeServer(move, m6)
                                                             end
                                                         end)
