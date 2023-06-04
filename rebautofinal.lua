@@ -420,6 +420,15 @@ end)
     
                         while autoToggle do
                             wait()
+                            if strength < 100000 or speed < 100000 or defence < 100000 or energy < 100000 then
+                             repeat
+                              wait()         
+                             strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
+                             speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
+                             defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value            
+                             energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
+                             until strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000
+                             end
                             if strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000 and workspace.Living:FindFirstChild(player.Name) then
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
