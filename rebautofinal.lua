@@ -376,21 +376,25 @@ end)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
                   end) 
                     spawn(function()
-                     local player = game.Players.LocalPlayer
-                     local maxKi = player.Character.Stats.Ki.MaxValue
-                     
-                     local humanoidRootPart
+                    local player = game.Players.LocalPlayer
+                    if player.Character and player.Character:FindFirstChild("Stats") then
+                       local stats = player.Character.Stats
+                       if stats:FindFirstChild("Ki") then
+                       local maxKi = stats.Ki.MaxValue
+                       -- Use the maxKi value as needed
+                      else
+                       print("Ki object not found")
+                      end
+                       else
+                        print("Character or Stats object not found")
+                      end
 
-                     repeat
-                     local livingFolder = game:GetService("Workspace").Living
-                     local playerFolder = livingFolder:FindFirstChild(player.Name)
-
-                     if playerFolder then
-                        humanoidRootPart = playerFolder.HumanoidRootPart
-                     end
-
-                     wait()
-                     until humanoidRootPart and humanoidRootPart:IsDescendantOf(livingFolder) and humanoidRootPart.Parent == playerFolder
+                     local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                     if humanoidRootPart then
+                     -- Use the humanoidRootPart value as needed
+                     else
+                       print("HumanoidRootPart not found")
+                    end
     
                         local bosses = {
                             workspace.Others.NPCs["SSJG Kakata"],
@@ -408,10 +412,11 @@ end)
                             workspace.Others.NPCs["X Fighter Trainer"],
                         }
                         local lastBoss = ""
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local plr = game.Players.LocalPlayer        
+                        local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
+                        local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
+                        local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value            
+                        local energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
     
                         while autoToggle do
                             wait()
