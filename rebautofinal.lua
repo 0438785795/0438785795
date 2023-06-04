@@ -445,8 +445,8 @@ end)
                                                 local Event = game:GetService("ReplicatedStorage").Package.Events.mel
                                                 local ev2 =
                                                 {
-                                                    ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                    ["FaceMouse"] = true
+                                                    ["MouseHit"] = CFrame.new(1374.38293, 18.4018955, 1128.27454, 0.653480172, -0.157526895, 0.740370929, -0, 0.978105783, 0.208109155, -0.756943643, -0.135995209, 0.639172673),
+                                                    ["FaceMouse"] = false
                                                 }
     
                                                 _G.PlayedSound = false
@@ -897,8 +897,8 @@ if game.PlaceId == 5151400895 then
                                                 local Event = game:GetService("ReplicatedStorage").Package.Events.mel
                                                 local ev2 =
                                                 {
-                                                    ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                    ["FaceMouse"] = true
+                                                    ["MouseHit"] = CFrame.new(1374.38293, 18.4018955, 1128.27454, 0.653480172, -0.157526895, 0.740370929, -0, 0.978105783, 0.208109155, -0.756943643, -0.135995209, 0.639172673),
+                                                    ["FaceMouse"] = false
                                                 }
     
                                                 _G.PlayedSound = false
