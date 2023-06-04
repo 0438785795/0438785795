@@ -60,11 +60,10 @@ if game.PlaceId == 3311165597 then
                 if not scriptRunning then
                     scriptRunning = true
         local function checkConditions(player)
-        local plr = game.Players.LocalPlayer        
-        local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
-        local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
-        local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value            
-        local energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
+        local strength = game:GetService("Workspace").Living[player].Stats.Strength.Value
+        local speed = game:GetService("Workspace").Living[player].Stats.Speed.Value
+        local defence = game:GetService("Workspace").Living[player].Stats.Defense.Value
+        local energy = game:GetService("Workspace").Living[player].Stats.Energy.Value
         return strength >= 100000 and speed >= 100000 and defence >= 100000 and energy >= 100000
     end
     
@@ -95,7 +94,7 @@ if game.PlaceId == 3311165597 then
         
     
         -- First block of code
-        if game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value < 100000 then
+        if game:GetService("Workspace").Living[playerName].Stats.Strength.Value < 100000 then
             local args1 = {
                 [1] = "Blacknwhite27",
                 [2] = 1
@@ -105,7 +104,7 @@ if game.PlaceId == 3311165597 then
         end
     
         -- Second block of code - only invoke if defense is less than 100,000
-        if game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value < 100000 then
+        if game:GetService("Workspace").Living[playerName].Stats.Defense.Value < 100000 then
             local args2 = {
                 [1] = "Blacknwhite27"
             }
@@ -114,7 +113,7 @@ if game.PlaceId == 3311165597 then
         end
     
         -- Third block of code - only invoke if energy is less than 100,000
-        if game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value < 100000 then
+        if game:GetService("Workspace").Living[playerName].Stats.Energy.Value < 100000 then
             local args3 = {
                 [1] = 1,
                 [2] = true,
@@ -125,7 +124,7 @@ if game.PlaceId == 3311165597 then
         end
     
         -- Fourth block of code
-        if game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value < 100000 then
+        if game:GetService("Workspace").Living[playerName].Stats.Speed.Value < 100000 then
             local args4 = {
                 [1] = "Blacknwhite27"
             }
