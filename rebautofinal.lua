@@ -861,10 +861,10 @@ if game.PlaceId == 5151400895 then
                 workspace.Others.NPCs["Vegetable (GoD in-training)"],
                         }
                         local lastBoss = ""
-                        local strength = game:GetService("Workspace").Living[player.Name].Stats.Strength.Value
-                        local speed = game:GetService("Workspace").Living[player.Name].Stats.Speed.Value
-                        local defence = game:GetService("Workspace").Living[player.Name].Stats.Defense.Value
-                        local energy = game:GetService("Workspace").Living[player.Name].Stats.Energy.Value
+                        local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
+                        local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
+                        local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value            
+                        local energy = game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value
 
 
     
