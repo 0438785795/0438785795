@@ -861,6 +861,7 @@ if game.PlaceId == 5151400895 then
                 workspace.Others.NPCs["Vegetable (GoD in-training)"],
                         }
                         local lastBoss = ""
+                        local plr = game.Players.LocalPlayer        
                         local strength = game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value
                         local speed = game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value
                         local defence = game:GetService("ReplicatedStorage").Datas[plr.UserId].Defense.Value            
