@@ -1041,7 +1041,7 @@ if game.PlaceId == 5151400895 then
     })
     
     
-local Reb = false
+local Reb = true
 local clickLoopThread = nil
 
 local function clickLoop()
