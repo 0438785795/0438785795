@@ -1041,7 +1041,7 @@ if game.PlaceId == 5151400895 then
     })
     
     
-local Reb = false
+local Reb = true
 local clickLoopThread = nil
 
 local function clickLoop()
@@ -1063,10 +1063,10 @@ local function clickLoop()
         }
 
         while true do
-        game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-        wait(2)
+            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+            wait(2)
+        end
     end
-end
 end
 
 Page.Toggle({
@@ -1075,14 +1075,14 @@ Page.Toggle({
         print(value)
         Reb = value
 
-        if Reb then
+        if Reb and clickLoopThread == nil then
             clickLoopThread = coroutine.create(clickLoop)
             coroutine.resume(clickLoopThread)
-        elseif clickLoopThread ~= nil then
+        elseif not Reb and clickLoopThread ~= nil then
             coroutine.yield(clickLoopThread)
             clickLoopThread = nil
         end
     end,
     Enabled = true
 })
-end
+
