@@ -595,29 +595,33 @@ end)
     })
     
     
-    local Reb = true
-    
-    local function clickLoop()
-        while Reb do 
-            wait()
-            game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+local Reb = false
+local clickLoopThread = nil
+
+local function clickLoop()
+    while Reb do 
+        wait()
+        game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+    end
+end
+
+Page.Toggle({
+    Text = "Rebirth",
+    Callback = function(value)
+        print(value)
+        Reb = value
+
+        if Reb then
+            clickLoopThread = coroutine.create(clickLoop)
+            coroutine.resume(clickLoopThread)
+        elseif clickLoopThread ~= nil then
+            coroutine.yield(clickLoopThread)
+            clickLoopThread = nil
         end
-    end
-    
-    Page.Toggle({
-        Text = "Rebirth",
-        Callback = function(value)
-            print(value)
-            if value == true then
-                Reb = true
-                coroutine.wrap(clickLoop)()
-            else
-                Reb = false
-            end
-        end,
-        Enabled = true
-    })
-    end
+    end,
+    Enabled = true
+})
+end
 
 
 -- Bills
