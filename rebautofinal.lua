@@ -1079,7 +1079,7 @@ Page.Toggle({
             clickLoopThread = coroutine.create(clickLoop)
             coroutine.resume(clickLoopThread)
         elseif clickLoopThread ~= nil then
-            coroutine.yield(clickLoopThread)
+            coroutine.cancel(clickLoopThread)
             clickLoopThread = nil
         end
     end,
