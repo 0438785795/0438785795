@@ -1046,24 +1046,27 @@ local clickLoopThread = nil
 
 local function clickLoop()
     while Reb do 
-        wait(0) -- Yield to the GUI thread
-
+        wait()
         local player = game.Players.LocalPlayer
         local rebValue = game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value
 
         game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
 
-        while rebValue >= game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value do
+        while rebValue >= game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value and Reb do
             game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
             wait(0.01)
         end
         wait(0.5)
 
+        if not Reb then
+            break
+        end
+
         local args = {
             [1] = "Earth"
         }
 
-        while true do
+        while Reb do
             game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
             wait(2)
         end
@@ -1080,11 +1083,11 @@ Page.Toggle({
             clickLoopThread = coroutine.create(clickLoop)
             coroutine.resume(clickLoopThread)
         elseif clickLoopThread ~= nil then
-            coroutine.cancel(clickLoopThread)
+            coroutine.yield(clickLoopThread)
             clickLoopThread = nil
         end
     end,
-    Enabled = true
+    Enabled = true 
 })
 end
 
