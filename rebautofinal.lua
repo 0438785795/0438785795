@@ -1046,7 +1046,8 @@ local clickLoopThread = nil
 
 local function clickLoop()
     while Reb do 
-        wait()
+        wait(0) -- Yield to the GUI thread
+
         local player = game.Players.LocalPlayer
         local rebValue = game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value
 
@@ -1063,10 +1064,10 @@ local function clickLoop()
         }
 
         while true do
-        game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-        wait(2)
+            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+            wait(2)
+        end
     end
-end
 end
 
 Page.Toggle({
