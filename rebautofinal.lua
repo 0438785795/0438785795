@@ -1087,7 +1087,6 @@ Page.Toggle({
             clickLoopThread = nil
         end
     end,
-    Enabled = true 
+    Enabled = true
 })
 end
-
