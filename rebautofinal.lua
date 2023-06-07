@@ -241,16 +241,20 @@ end)
         
             --AUTO BLOCK--
         spawn(function()
-                _G.blocking = true
-                
-                while _G.blocking do
-                    wait(0.1)
-                    if game:GetService("Players").LocalPlayer.Status.Blocking.Value == false then
-                        local args = {
-                            [1] = true
-                        }
-                        game:GetService("ReplicatedStorage").Package.Events.block:InvokeServer(unpack(args))
-                    end
+           _G.blocking = true
+
+            while _G.blocking do
+               wait(0.1)
+               local localPlayer = game:GetService("Players").LocalPlayer
+                if localPlayer and localPlayer.Status and localPlayer.Status:FindFirstChild("Blocking") then
+                 local blockingValue = localPlayer.Status.Blocking.Value
+                  if blockingValue == false then
+                   local args = {
+                    [1] = true
+                    }
+                     game:GetService("ReplicatedStorage").Package.Events.block:InvokeServer(unpack(args))
+                  end
+                 end
                 end
                 end)
        
@@ -685,16 +689,20 @@ if game.PlaceId == 5151400895 then
                 if not scriptRunning then
                     scriptRunning = true
                 spawn(function()
-                _G.blocking = true
-                
-                while _G.blocking do
-                    wait(0.1)
-                    if game:GetService("Players").LocalPlayer.Status.Blocking.Value == false then
-                        local args = {
-                            [1] = true
-                        }
-                        game:GetService("ReplicatedStorage").Package.Events.block:InvokeServer(unpack(args))
-                    end
+               _G.blocking = true
+
+             while _G.blocking do
+               wait(0.1)
+               local localPlayer = game:GetService("Players").LocalPlayer
+                if localPlayer and localPlayer.Status and localPlayer.Status:FindFirstChild("Blocking") then
+                 local blockingValue = localPlayer.Status.Blocking.Value
+                  if blockingValue == false then
+                   local args = {
+                    [1] = true
+                    }
+                     game:GetService("ReplicatedStorage").Package.Events.block:InvokeServer(unpack(args))
+                  end
+                 end
                 end
                 end)
                 
