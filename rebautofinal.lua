@@ -134,7 +134,7 @@ while continueLoop do
     -- Check if conditions are met, and break out of the loop if they are
     if checkConditions(playerName) then
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
-        break
+        continueLoop = false
     end
 
     -- Check if the 'reb' event is invoked, and continue the loop if it is
