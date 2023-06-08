@@ -253,8 +253,18 @@ end)
                     end
                 end
                 end)
-       
-        --AUTO MODE--
+
+spawn(function()  
+while true do                        
+local args = {
+    [1] = "Blacknwhite27"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("cha"):InvokeServer(unpack(args))
+end
+end)                        
+
+ --AUTO MODE--
  spawn(function()
 _G.AutoForm = true
 
