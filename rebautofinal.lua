@@ -131,13 +131,13 @@ while continueLoop do
         game:GetService("ReplicatedStorage").Package.Events.ch:InvokeServer(unpack(args4))
     end
 
-    -- Check if conditions are met, and break out of the loop if they are
+    -- Check if conditions are met, and set continueLoop to false if they are
     if checkConditions(playerName) then
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
         continueLoop = false
     end
 
-    -- Check if the 'reb' event is invoked, and continue the loop if it is
+    -- Check if the 'reb' event is invoked, and set continueLoop to true if it is
     if game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer() then
         continueLoop = true
     end
@@ -145,6 +145,7 @@ while continueLoop do
     -- Wait for a short duration before checking conditions again
     wait()
 end
+
 
 
         --KI--
