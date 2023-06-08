@@ -814,7 +814,7 @@ local diedConnection
 
 local function onPlayerDied()
     diedConnection:Disconnect()
-    wait(6)
+    wait(9)
     if player.Status and not (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
         restartScript()
     end
