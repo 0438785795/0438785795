@@ -255,117 +255,43 @@ end)
                 end)
        
         --AUTO MODE--
-        spawn(function()
-        local plr = game.Players.LocalPlayer
-        local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
-        
-        local Settings = {
-            Tables = {
-                Forms = {
-                    {FormName = 'SSJBUI', StrengthReq = 120000000, SpeedReq = 120000000, EnergyReq = 120000000},
-                    {FormName = 'Ultra Ego', StrengthReq = 120000000, SpeedReq = 120000000, EnergyReq = 120000000},
-                    {FormName = 'LBSSJ4', StrengthReq = 100000000, SpeedReq = 100000000, EnergyReq = 100000000},
-                    {FormName = 'SSJB4', StrengthReq = 51000000, SpeedReq = 51000000, EnergyReq = 51000000},
-                    {FormName = 'True God of Creation', StrengthReq = 31000000, SpeedReq = 31000000, EnergyReq = 31000000},
-                    {FormName = 'True God of Destruction', StrengthReq = 31000000, SpeedReq = 31000000, EnergyReq = 31000000},
-                    {FormName = 'Super Broly', StrengthReq = 4000000, SpeedReq = 4000000, EnergyReq = 4000000},
-                    {FormName = 'SSJR3', StrengthReq = 50000000, SpeedReq = 50000000, EnergyReq = 50000000},
-                    {FormName = 'SSJB3', StrengthReq = 50000000, SpeedReq = 50000000, EnergyReq = 50000000},
-                    {FormName = 'God of Destruction', StrengthReq = 30000000, SpeedReq = 30000000, EnergyReq = 30000000},
-                    {FormName = 'God of Creation', StrengthReq = 30000000, SpeedReq = 30000000, EnergyReq = 30000000},
-                    {FormName = 'Jiren Ultra Instinct', StrengthReq = 14000000, SpeedReq = 14000000, EnergyReq = 14000000},
-                    {FormName = 'Mastered Ultra Instinct', StrengthReq = 14000000, SpeedReq = 14000000, EnergyReq = 14000000},
-                    {FormName = 'Godly SSJ2', StrengthReq = 8000000, SpeedReq = 8000000, EnergyReq = 8000000},
-                    {FormName = 'Ultra Instinct Omen', StrengthReq = 5000000, SpeedReq = 5000000, EnergyReq = 5000000},
-                    {FormName = 'Evil SSJ', StrengthReq = 4000000, SpeedReq = 4000000, EnergyReq = 4000000},
-                    {FormName = 'Blue Evolution', StrengthReq = 3500000, SpeedReq = 3500000, EnergyReq = 3500000},
-                    {FormName = 'Dark Rose', StrengthReq = 3500000, SpeedReq = 3500000, EnergyReq = 3500000},
-                    {FormName = 'Kefla SSJ2', StrengthReq = 3000000, SpeedReq = 3000000, EnergyReq = 3000000},
-                    {FormName = 'SSJ Berserker', StrengthReq = 3000000, SpeedReq = 3000000, EnergyReq = 3000000},
-                    {FormName = 'True Rose', StrengthReq = 2400000, SpeedReq = 2400000, EnergyReq = 2400000},
-                    {FormName = 'SSJB Kaioken', StrengthReq = 2200000, SpeedReq = 2200000, EnergyReq = 2200000},
-                    {FormName = 'SSJ Rose', StrengthReq = 1400000, SpeedReq = 1400000, EnergyReq = 1400000},
-                    {FormName = 'SSJ Blue', StrengthReq = 1200000, SpeedReq = 1200000, EnergyReq = 1200000},
-                    {FormName = 'Corrupt SSJ', StrengthReq = 700000, SpeedReq = 700000, EnergyReq = 700000},
-                    {FormName = 'SSJ Rage', StrengthReq = 700000, SpeedReq = 700000, EnergyReq = 700000},
-                    {FormName = 'SSJG', StrengthReq = 450000, SpeedReq = 450000, EnergyReq = 450000},
-                    {FormName = 'SSJ4', StrengthReq = 300000, SpeedReq = 300000, EnergyReq = 300000},
-                    {FormName = 'Mystic', StrengthReq = 200000, SpeedReq = 200000, EnergyReq = 200000},
-                    {FormName = 'LSSJ', StrengthReq = 140000, SpeedReq = 140000, EnergyReq = 140000},
-                    {FormName = 'SSJ3', StrengthReq = 95000, SpeedReq = 95000, EnergyReq = 95000},
-                    {FormName = 'Spirit SSJ', StrengthReq = 65000, SpeedReq = 65000, EnergyReq = 65000},
-                    {FormName = 'SSJ2 Majin', StrengthReq = 65000, SpeedReq = 65000, EnergyReq = 65000},
-                    {FormName = 'SSJ2', StrengthReq = 34000, SpeedReq = 34000, EnergyReq = 34000},
-                    {FormName = 'SSJ Kaioken', StrengthReq = 16000, SpeedReq = 16000, EnergyReq = 16000},
-                    {FormName = 'SSJ', StrengthReq = 6000, SpeedReq = 6000, EnergyReq = 6000},
-                    {FormName = 'FSSJ', StrengthReq = 2500, SpeedReq = 2500, EnergyReq = 2500},
-                    {FormName = 'Kaioken', StrengthReq = 1000, SpeedReq = 1000, EnergyReq = 1000},
-                }
-            },
-            Variables = {Farm = false}
-        }
-        
-        local currentForm = ""
-        
-        local function transform()
-            pcall(function()
-                while true do
-                    if game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
-                        repeat wait() until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
-                    end
-        
-                    for i,v in pairs(Settings.Tables.Forms) do
-                        local formName = v.FormName
-                        local strengthReq = v.StrengthReq
-                        local speedReq = v.SpeedReq
-                        local energyReq = v.EnergyReq
-        
-                        if game:GetService("ReplicatedStorage").Datas[plr.UserId].Strength.Value >= strengthReq 
-                            and game:GetService("ReplicatedStorage").Datas[plr.UserId].Speed.Value >= speedReq
-                            and game:GetService("ReplicatedStorage").Datas[plr.UserId].Energy.Value >= energyReq
-                            and formName ~= currentForm then
-                            if equipRemote:InvokeServer(formName) then
-                                currentForm = formName
-                                for i = 1, 5 do
-                                    game:GetService("ReplicatedStorage").Package.Events.ta:InvokeServer()
-                                end
-                                break
-                            end
-                        end
-                    end
-        
-                    repeat wait()
-                        if plr.Character.Status.SelectedTransformation.Value ~= plr.Character.Status.Transformation.Value then
-                            for i = 1, 5 do
-                                game:GetService("ReplicatedStorage").Package.Events.ta:InvokeServer()
-                            end
-                        end
-                    until plr.Character.Status.SelectedTransformation.Value == plr.Character.Status.Transformation.Value
-                end
-            end)
-        end
-        
-        transform()
-        
-        Spawn(function()
-            while true do
-                wait()
-                if game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
-                    repeat wait() until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
-                    wait(1)
-                    transform()
-                    wait(6)
-                end
+ spawn(function()
+_G.AutoForm = true
+
+while _G.AutoForm do
+wait(2.5)
+local transform = game:GetService("ReplicatedStorage").Package.Events.ta
+local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
+
+local player = game.Players.LocalPlayer
+local forms = {'SSJBUI','Ultra Ego','SSJB4','True God of Creation','True God of Destruction','Super Broly','SSJR3','SSJB3','God of Destruction','God of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2','LSSJG','LSSJ4','SSJG4','LSSJ3','SSJ5','Mystic Kaioken','LSSJ Kaioken','SSJ2 Kaioken','Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'} -- Add the names of the forms you want to equip
+
+local function equipForm(formName)
+    equipRemote:InvokeServer(formName)
+    wait() -- Wait for the form to be equipped
+    return player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
+end
+
+local bestFormEquipped = false
+while true do
+    for _, form in ipairs(forms) do
+        repeat
+            wait()
+            if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+                transform:InvokeServer()
             end
-        end)
-        
-        Spawn(function()
-            plr.CharacterRemoving:Connect(function()
-                wait(0.8)
-                transform()
-            end)
-        end)
-        end)
+        until equipForm(form)
+        bestFormEquipped = form == player.Status.SelectedTransformation.Value
+        if bestFormEquipped then
+            break
+        end
+    end
+    if bestFormEquipped then
+        break
+    end
+end
+end
+end)
         
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
