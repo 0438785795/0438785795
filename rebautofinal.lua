@@ -912,7 +912,7 @@ end)
                                 if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                     wait(8)
                                     for _, boss in ipairs(bosses) do
-                                        if boss.Name ~= lastBoss and workspace:FindFirstChild("Living") and workspace.Living:FindFirstChild(boss.Name) and workspace.Living:FindFirstChild(player.Name) and (player.Status.Transformation.Value == "Ultra Ego" or player.Status.Transformation.Value == "SSJBUI") then
+                                        if boss.Name ~= lastBoss and workspace:FindFirstChild("Living") and workspace.Living:FindFirstChild(boss.Name) then
                                             game:GetService("ReplicatedStorage").Package.Events.Qaction:InvokeServer(boss)
                                             if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == boss.Name then
                                                 _G.Looping = true
