@@ -791,12 +791,21 @@ local function restartScript()
 
         wait(1.75)
         equipRemote:InvokeServer("Ultra Ego")
-        transform:InvokeServer()
-        transform:InvokeServer()
+        repeat
+          wait()
+           if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+               transform:InvokeServer()
+           end
+        until player.Status and player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
+
         spawn(function()
-            equipRemote:InvokeServer("SSJBUI")
-            transform:InvokeServer()
-            transform:InvokeServer()
+        equipRemote:InvokeServer("SSJBUI")
+        repeat
+          wait()
+           if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+               transform:InvokeServer()
+           end
+          until player.Status and player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
         end)
     end
 end
