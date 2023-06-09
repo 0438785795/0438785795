@@ -270,7 +270,7 @@ local transform = game:GetService("ReplicatedStorage").Package.Events.ta
 local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
 local player = game.Players.LocalPlayer
-local forms = {'SSJB4', 'True God of Creation', 'True God of Destruction', 'Super Broly', 'LSSJG', 'LSSJ4', 'SSJG4', 'LSSJ3', 'SSJ5', 'Mystic Kaioken', 'LSSJ Kaioken', 'SSJ2 Kaioken', 'SSJR3', 'SSJB3', 'God Of Destruction', 'God Of Creation', 'Jiren Ultra Instinct', 'Mastered Ultra Instinct', 'Godly SSJ2', 'Ultra Instinct Omen', 'Evil SSJ', 'Blue Evolution', 'Dark Rose', 'Kefla SSJ2', 'SSJ Berserker', 'True Rose', 'SSJB Kaioken', 'SSJ Rose', 'SSJ Blue', 'Corrupt SSJ', 'SSJ Rage', 'SSJG', 'SSJ4', 'Mystic', 'LSSJ', 'SSJ3', 'Spirit SSJ', 'SSJ2 Majin', 'SSJ2', 'SSJ Kaioken', 'SSJ', 'FSSJ', 'Kaioken'} -- Add the names of the forms you want to equip
+local forms = {'SSJB4','True God of Creation','True God of Destruction','Super Broly','LSSJG','LSSJ4','SSJG4','LSSJ3','SSJ5','Mystic Kaioken','LSSJ Kaioken','SSJ2 Kaioken','SSJR3','SSJB3','God Of Destruction','God Of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2', 'Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'} -- Add the names of the forms you want to equip
 
 local function equipForm(formName)
     equipRemote:InvokeServer(formName)
@@ -278,32 +278,31 @@ local function equipForm(formName)
     return player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
 end
 
-local maxKi = player.Character.Stats.MaxKi.Value
-local requiredKiPercentage = 0.25 -- Minimum required Ki percentage (25%)
-
-local function checkKiThreshold()
-    local currentKi = player.Character.Stats.Ki.Value
-    return currentKi >= requiredKiPercentage * maxKi
-end
-
-local function getBestForm()
-    local bestForm
-    for _, form in ipairs(forms) do
-        if player.Character.Stats.Ki.Value >= player.Character.Stats.MaxKi.Value * requiredKiPercentage then
-            bestForm = form
-        end
-    end
-    return bestForm
-end
-
+local bestFormEquipped = false
 while true do
-    local bestForm = getBestForm()
-    if bestForm then
-        if equipForm(bestForm) then
+    for _, form in ipairs(forms) do
+        repeat
+            wait()
+            if player.Character and player.Character.Stats and player.Character.Stats.Ki.Value < 0.25 then
+                repeat
+                    wait(1) -- Wait for 1 second before checking again
+                until player.Character.Stats.Ki.Value >= 0.25
+            end
+
+            if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+                transform:InvokeServer()
+            end
+        until equipForm(form)
+
+        bestFormEquipped = form == player.Status.SelectedTransformation.Value
+        if bestFormEquipped and player.Character and player.Character.Stats and player.Character.Stats.Ki.Value >= 0.25 then
             break
         end
     end
-    wait()
+
+    if bestFormEquipped and player.Character and player.Character.Stats and player.Character.Stats.Ki.Value >= 0.25 then
+        break
+    end
 end
 end)
         
