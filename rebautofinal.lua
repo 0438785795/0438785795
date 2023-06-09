@@ -269,24 +269,12 @@ end)
 _G.AutoForm = true
 
 while _G.AutoForm do
-wait(0)                            
+wait(0.5)                            
 local transform = game:GetService("ReplicatedStorage").Package.Events.ta
 local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
 local player = game.Players.LocalPlayer
 local forms = {'SSJBUI','Ultra Ego','LBSSJ4','SSJB4','True God of Creation','True God of Destruction','Super Broly','SSJR3','SSJB3','God of Destruction','God of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2','LSSJG','LSSJ4','SSJG4','LSSJ3','SSJ5','Mystic Kaioken','LSSJ Kaioken','SSJ2 Kaioken','Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'} -- Add the names of the forms you want to equip
-local player = game.Players.LocalPlayer
-if player.Character and player.Character:FindFirstChild("Stats") then
-local stats = player.Character.Stats
-if stats:FindFirstChild("Ki") then
-local maxKi = stats.Ki.MaxValue
- -- Use the maxKi value as needed
-else
-print("Ki object not found")
-end
-else
-print("Character or Stats object not found")
-end
                                     
 local function equipForm(formName)
     equipRemote:InvokeServer(formName)
@@ -296,7 +284,6 @@ end
 
 local bestFormEquipped = false
 while true do
-if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.20 then
     for _, form in ipairs(forms) do
         repeat
             wait()
@@ -312,7 +299,6 @@ if player.Character.Stats.Ki.Value <= player.Character.Stats.Ki.MaxValue * 0.20 
     if bestFormEquipped then
         break
     end
-end
 end
 end
 end)
