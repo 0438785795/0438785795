@@ -269,7 +269,7 @@ end)
 _G.AutoForm = true
 
 while _G.AutoForm do
-wait(2)
+wait(1)
 local transform = game:GetService("ReplicatedStorage").Package.Events.ta
 local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
@@ -286,7 +286,7 @@ local bestFormEquipped = false
 while true do
     for _, form in ipairs(forms) do
         repeat
-            wait()
+            wait(1)
             if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
                 transform:InvokeServer()
             end
