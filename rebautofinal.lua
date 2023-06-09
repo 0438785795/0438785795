@@ -269,6 +269,7 @@ end)
 _G.AutoForm = true
 
 while _G.AutoForm do
+wait(0)                            
 local transform = game:GetService("ReplicatedStorage").Package.Events.ta
 local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
