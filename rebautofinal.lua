@@ -266,7 +266,7 @@ end)
 
  --AUTO MODE--
  spawn(function()
- while wait(0.5) do
+ while wait(1) do
     if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
         local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
         local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
