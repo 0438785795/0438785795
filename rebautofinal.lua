@@ -289,6 +289,12 @@ while wait(0) do
     end
 
     if _G.AutoForm then
+    local plr = game.Players.LocalPlayer                                    
+    if game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
+        repeat
+            wait()
+        until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
+                                            
         local transform = game:GetService("ReplicatedStorage").Package.Events.ta
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
@@ -318,6 +324,7 @@ while wait(0) do
             break
         end
     end
+end
 end
 end)
         
