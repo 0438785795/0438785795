@@ -47,6 +47,17 @@ if game.PlaceId == 3311165597 then
         Max = 1000,
         Def = 1000
     })
+
+local player = game.Players.LocalPlayer
+local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+
+Page.Button({
+    Text = "Rebirths: " .. rebirthValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
+
     
     local autoToggle = false
     local scriptRunning = false -- Add a variable to track the script execution status
@@ -617,6 +628,17 @@ if game.PlaceId == 5151400895 then
         Max = 1000,
         Def = 1000
     })
+
+local player = game.Players.LocalPlayer
+local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+
+Page.Button({
+    Text = "Rebirths: " .. rebirthValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
+
     
     local autoToggle = false
     local scriptRunning = false -- Add a variable to track the script execution status
