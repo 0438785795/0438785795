@@ -608,6 +608,28 @@ if game.PlaceId == 5151400895 then
         Title = "Auto Farm"
     })
 
+local player = game.Players.LocalPlayer
+
+local function updateStatsValue()
+    local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
+    Page.Button({
+        Text = "Stats: " .. statsValue,
+        Callback = function()
+            print("Clicked!")
+        end
+    })
+end
+
+-- Update statsValue initially
+updateStatsValue()
+
+-- Update statsValue every 5 seconds
+while true do
+    wait(0)
+    updateStatsValue()
+end
+
+    
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
 
