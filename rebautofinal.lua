@@ -26,7 +26,7 @@ if game.PlaceId == 3311165597 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
-
+spawn(function()
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
 
@@ -50,7 +50,7 @@ end
 while wait(1) do
     updateStatsValue()
 end
-
+end)
 
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
@@ -632,7 +632,7 @@ if game.PlaceId == 5151400895 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
-
+spawn(function()
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
 
@@ -656,7 +656,7 @@ end
 while wait(1) do
     updateStatsValue()
 end
-
+end)
 
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
