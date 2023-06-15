@@ -26,6 +26,16 @@ if game.PlaceId == 3311165597 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
+
+    local player = game.Players.LocalPlayer
+    local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+
+    Page.Button({
+    Text = "Rebirths: " .. rebirthValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
     
     local Page2 = UI.New({
         Title = "Info"
@@ -47,16 +57,6 @@ if game.PlaceId == 3311165597 then
         Max = 1000,
         Def = 1000
     })
-
-local player = game.Players.LocalPlayer
-local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
-
-Page.Button({
-    Text = "Rebirths: " .. rebirthValue,
-    Callback = function()
-        print("Clicked!")
-    end
-})
 
     
     local autoToggle = false
@@ -607,6 +607,16 @@ if game.PlaceId == 5151400895 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
+
+    local player = game.Players.LocalPlayer
+    local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+
+    Page.Button({
+    Text = "Rebirths: " .. rebirthValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
     
     local Page2 = UI.New({
         Title = "Info"
@@ -628,16 +638,6 @@ if game.PlaceId == 5151400895 then
         Max = 1000,
         Def = 1000
     })
-
-local player = game.Players.LocalPlayer
-local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
-
-Page.Button({
-    Text = "Rebirths: " .. rebirthValue,
-    Callback = function()
-        print("Clicked!")
-    end
-})
 
     
     local autoToggle = false
