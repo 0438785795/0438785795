@@ -326,6 +326,7 @@ while wait(0) do
     end
 end
 end
+end
 end)
         
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
