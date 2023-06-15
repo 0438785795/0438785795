@@ -294,7 +294,7 @@ while wait(0) do
         repeat
             wait()
         until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
-                                            
+        wait(1)                                    
         local transform = game:GetService("ReplicatedStorage").Package.Events.ta
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
