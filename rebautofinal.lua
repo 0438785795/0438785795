@@ -612,12 +612,14 @@ if game.PlaceId == 5151400895 then
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
 
+local button
+
 local function updateStatsValue()
     statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
     button.Text = "Stats: " .. statsValue
 end
 
-local button = Page.Button({
+button = Page.Button({
     Text = "Stats: " .. statsValue,
     Callback = function()
         print("Clicked!")
@@ -625,6 +627,7 @@ local button = Page.Button({
         print("New statsValue:", statsValue)  -- Print the updated value
     end
 })
+
 
     
     local player = game.Players.LocalPlayer
