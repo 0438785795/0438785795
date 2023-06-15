@@ -27,6 +27,28 @@ if game.PlaceId == 3311165597 then
         Title = "Auto Farm"
     })
 
+local player = game.Players.LocalPlayer
+local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
+
+local function updateButtonValue()
+    Page.Button({
+        Text = "Stats: " .. statsValue,
+        Callback = function()
+            print("Clicked!")
+        end
+    })
+end
+
+-- Initial button creation
+updateButtonValue()
+
+-- Update button value whenever the statsValue changes
+game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Connect(function(newValue)
+    statsValue = newValue
+    updateButtonValue()
+end)
+
+    
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
 
@@ -608,6 +630,28 @@ if game.PlaceId == 5151400895 then
         Title = "Auto Farm"
     })
 
+local player = game.Players.LocalPlayer
+local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
+
+local function updateButtonValue()
+    Page.Button({
+        Text = "Stats: " .. statsValue,
+        Callback = function()
+            print("Clicked!")
+        end
+    })
+end
+
+-- Initial button creation
+updateButtonValue()
+
+-- Update button value whenever the statsValue changes
+game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Connect(function(newValue)
+    statsValue = newValue
+    updateButtonValue()
+end)
+
+    
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
 
