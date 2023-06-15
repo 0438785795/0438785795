@@ -43,8 +43,7 @@ game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Conne
     button.Text = "Stats: " .. statsValue
 end)
 
-
-    
+ 
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
 
@@ -641,7 +640,6 @@ game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Conne
     statsValue = newValue
     button.Text = "Stats: " .. statsValue
 end)
-
 
     
     local player = game.Players.LocalPlayer
