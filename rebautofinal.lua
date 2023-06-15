@@ -27,13 +27,16 @@ if game.PlaceId == 3311165597 then
         Title = "Auto Farm"
     })
 
+
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
 local button = nil
 
 local function updateButtonValue()
     if button then
-        button.Text = "Stats: " .. statsValue
+        button:Update({
+            Text = "Stats: " .. statsValue
+        })
     end
 end
 
@@ -50,6 +53,7 @@ game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Conne
     statsValue = newValue
     updateButtonValue()
 end)
+
 
     
     local player = game.Players.LocalPlayer
@@ -633,13 +637,16 @@ if game.PlaceId == 5151400895 then
         Title = "Auto Farm"
     })
 
+
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
 local button = nil
 
 local function updateButtonValue()
     if button then
-        button.Text = "Stats: " .. statsValue
+        button:Update({
+            Text = "Stats: " .. statsValue
+        })
     end
 end
 
@@ -656,7 +663,6 @@ game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Conne
     statsValue = newValue
     updateButtonValue()
 end)
-
 
     
     local player = game.Players.LocalPlayer
