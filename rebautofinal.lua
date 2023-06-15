@@ -614,13 +614,14 @@ local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Str
 
 local function updateStatsValue()
     statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
+    button.Text = "Stats: " .. statsValue
 end
 
-Page.Button({
+local button = Page.Button({
     Text = "Stats: " .. statsValue,
     Callback = function()
         print("Clicked!")
-        updateStatsValue()  -- Update the statsValue
+        updateStatsValue()  -- Update the statsValue and button text
         print("New statsValue:", statsValue)  -- Print the updated value
     end
 })
