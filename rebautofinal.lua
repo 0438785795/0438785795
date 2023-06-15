@@ -29,24 +29,21 @@ if game.PlaceId == 3311165597 then
 
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-
-local button
+local button = nil
 
 local function updateButtonValue()
     if button then
         button.Text = "Stats: " .. statsValue
-    else
-        button = Page.Button({
-            Text = "Stats: " .. statsValue,
-            Callback = function()
-                print("Clicked!")
-            end
-        })
     end
 end
 
--- Initial button creation
-updateButtonValue()
+-- Create the initial button
+button = Page.Button({
+    Text = "Stats: " .. statsValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
 
 -- Update button value whenever the statsValue changes
 game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Connect(function(newValue)
@@ -54,7 +51,7 @@ game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Conne
     updateButtonValue()
 end)
 
- 
+    
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
 
@@ -638,30 +635,28 @@ if game.PlaceId == 5151400895 then
 
 local player = game.Players.LocalPlayer
 local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-
-local button
+local button = nil
 
 local function updateButtonValue()
     if button then
         button.Text = "Stats: " .. statsValue
-    else
-        button = Page.Button({
-            Text = "Stats: " .. statsValue,
-            Callback = function()
-                print("Clicked!")
-            end
-        })
     end
 end
 
--- Initial button creation
-updateButtonValue()
+-- Create the initial button
+button = Page.Button({
+    Text = "Stats: " .. statsValue,
+    Callback = function()
+        print("Clicked!")
+    end
+})
 
 -- Update button value whenever the statsValue changes
 game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Changed:Connect(function(newValue)
     statsValue = newValue
     updateButtonValue()
 end)
+
 
     
     local player = game.Players.LocalPlayer
