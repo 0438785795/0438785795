@@ -26,31 +26,6 @@ if game.PlaceId == 3311165597 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
-spawn(function()
-local player = game.Players.LocalPlayer
-local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-
-local button = Page.Button({
-    Text = "Stats: " .. statsValue,
-    Callback = function()
-        print("Clicked!")
-    end
-})
-
--- Function to update the button text
-local function updateStatsValue()
-    local newStatsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-    if newStatsValue ~= statsValue then
-        statsValue = newStatsValue
-        button.Text = "Stats: " .. statsValue
-    end
-end
-
--- Check for stat updates periodically
-while wait(1) do
-    updateStatsValue()
-end
-end)
 
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
@@ -632,31 +607,6 @@ if game.PlaceId == 5151400895 then
     local Page = UI.New({
         Title = "Auto Farm"
     })
-spawn(function()
-local player = game.Players.LocalPlayer
-local statsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-
-local button = Page.Button({
-    Text = "Stats: " .. statsValue,
-    Callback = function()
-        print("Clicked!")
-    end
-})
-
--- Function to update the button text
-local function updateStatsValue()
-    local newStatsValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Strength.Value
-    if newStatsValue ~= statsValue then
-        statsValue = newStatsValue
-        button.Text = "Stats: " .. statsValue
-    end
-end
-
--- Check for stat updates periodically
-while wait(1) do
-    updateStatsValue()
-end
-end)
 
     local player = game.Players.LocalPlayer
     local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
