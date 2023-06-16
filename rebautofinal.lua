@@ -277,49 +277,55 @@ end)
 
  --AUTO MODE--
  spawn(function()
- while wait() do
-    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
-        local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
-        local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
-        if kiValue < maxKiValue * 0.1 then
-            _G.AutoForm = false
-        else
-            _G.AutoForm = true
-        end
-    end
+local player = game.Players.LocalPlayer
+local replicatedStorage = game:GetService("ReplicatedStorage")
 
-    if _G.AutoForm then
-        local transform = game:GetService("ReplicatedStorage").Package.Events.ta
-        local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
-
-        local player = game.Players.LocalPlayer
-        local forms = {'SSJBUI','Ultra Ego','SSJB4','True God of Creation','True God of Destruction','Super Broly','SSJR3','SSJB3','God of Destruction','God of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2','LSSJG','LSSJ4','SSJG4','LSSJ3','SSJ5','Mystic Kaioken','LSSJ Kaioken','SSJ2 Kaioken','Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'}
-
-        local function equipForm(formName)
-            equipRemote:InvokeServer(formName)
-            wait() -- Wait for the form to be equipped
-            return player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
+while true do
+    if replicatedStorage.Datas[player.UserId].Quest.Value == "" then
+      wait(1)
+        if player.Character and player.Character:FindFirstChild("Stats") and player.Character.Stats:FindFirstChild("Ki") then
+            local kiValue = player.Character.Stats.Ki.Value
+            local maxKiValue = player.Character.Stats.Ki.MaxValue
+            if kiValue < maxKiValue * 0.1 then
+                _G.AutoForm = false
+            else
+                _G.AutoForm = true
+            end
         end
 
-        local bestFormEquipped = false
-        while true do
-            for _, form in ipairs(forms) do
-                repeat
-                    wait()
-                    if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
-                        transform:InvokeServer()
+        if _G.AutoForm then
+            local transform = replicatedStorage.Package.Events.ta
+            local equipRemote = replicatedStorage.Package.Events.equipskill
+
+            local forms = {'SSJBUI', 'Ultra Ego', 'SSJB4', 'True God of Creation', 'True God of Destruction', 'Super Broly', 'SSJR3', 'SSJB3', 'God of Destruction', 'God of Creation', 'Jiren Ultra Instinct', 'Mastered Ultra Instinct', 'Godly SSJ2', 'LSSJG', 'LSSJ4', 'SSJG4', 'LSSJ3', 'SSJ5', 'Mystic Kaioken', 'LSSJ Kaioken', 'SSJ2 Kaioken', 'Ultra Instinct Omen', 'Evil SSJ', 'Blue Evolution', 'Dark Rose', 'Kefla SSJ2', 'SSJ Berserker', 'True Rose', 'SSJB Kaioken', 'SSJ Rose', 'SSJ Blue', 'Corrupt SSJ', 'SSJ Rage', 'SSJG', 'SSJ4', 'Mystic', 'LSSJ', 'SSJ3', 'Spirit SSJ', 'SSJ2 Majin', 'SSJ2', 'SSJ Kaioken', 'SSJ', 'FSSJ', 'Kaioken'}
+
+            local function equipForm(formName)
+                equipRemote:InvokeServer(formName)
+                wait() -- Wait for the form to be equipped
+                return player.Status.SelectedTransformation.Value == player.Status.Transformation.Value
+            end
+
+            local bestFormEquipped = false
+            while true do
+                for _, form in ipairs(forms) do
+                    repeat
+                        wait()
+                        if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+                            transform:InvokeServer()
+                        end
+                    until equipForm(form)
+                    bestFormEquipped = form == player.Status.SelectedTransformation.Value
+                    if bestFormEquipped then
+                        break
                     end
-                until equipForm(form)
-                bestFormEquipped = form == player.Status.SelectedTransformation.Value
+                end
                 if bestFormEquipped then
                     break
                 end
             end
-            if bestFormEquipped then
-                break
-            end
         end
     end
+    wait() -- Wait before checking the condition again
 end
 end)
         
