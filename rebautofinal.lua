@@ -289,7 +289,7 @@ while wait(0) do
     end
 
     if _G.AutoForm and game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == "" then
-        wait(2)
+        wait(1)
         local transform = game:GetService("ReplicatedStorage").Package.Events.ta
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
@@ -318,6 +318,10 @@ while wait(0) do
         if bestFormEquipped then
             break
         end
+    end
+
+    if not _G.AutoForm or game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
+        _G.AutoForm = false
     end
 end
 end)
