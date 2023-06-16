@@ -277,7 +277,7 @@ end)
 
  --AUTO MODE--
  spawn(function()
- while wait() do
+ while wait(1) do
     if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
         local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
         local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
@@ -293,7 +293,7 @@ end)
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
         local player = game.Players.LocalPlayer
-        local forms = {'SSJBUI','Ultra Ego','SSJB4','SSJR3','SSJB3','God of Destruction','God of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2','Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'}
+        local forms = {'SSJBUI','Ultra Ego','SSJB4','True God of Creation','True God of Destruction','Super Broly','SSJR3','SSJB3','God of Destruction','God of Creation','Jiren Ultra Instinct', 'Mastered Ultra Instinct','Godly SSJ2','LSSJG','LSSJ4','SSJG4','LSSJ3','SSJ5','Mystic Kaioken','LSSJ Kaioken','SSJ2 Kaioken','Ultra Instinct Omen', 'Evil SSJ','Blue Evolution','Dark Rose','Kefla SSJ2','SSJ Berserker','True Rose', 'SSJB Kaioken','SSJ Rose', 'SSJ Blue','Corrupt SSJ','SSJ Rage','SSJG','SSJ4','Mystic','LSSJ','SSJ3','Spirit SSJ','SSJ2 Majin','SSJ2','SSJ Kaioken','SSJ','FSSJ','Kaioken'}
 
         local function equipForm(formName)
             equipRemote:InvokeServer(formName)
@@ -517,34 +517,7 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
-
-                                                                 local args4 = {
-                                                                 [1] = "Destruction Orb",
-                                                                 [2] = true,
-                                                                 [4] = {    
-                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                                 ["FaceMouse"] = true
-                                                                 }
-                                                                 }
-                                                                 game:GetService("ReplicatedStorage").Package.Events.BigBall:InvokeServer(unpack(args4))
-
-                                                                 local args5 = {
-                                                                 [1] = "Destruction Orb",
-                                                                 [2] = false,
-                                                                 [3] = true,
-                                                                 [4] = {
-                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
-                                                                 }
-                                                                 }
-                                                                 game:GetService("ReplicatedStorage").Package.Events.BigBall:InvokeServer(unpack(args5))
-
-                                                                 local args = {
-                                                                 [1] = "Destruction Orb",
-                                                                 [2] = CFrame.new(humanoidRootPart.Position),
-                                                                 }
-                
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
