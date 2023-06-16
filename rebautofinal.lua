@@ -282,7 +282,7 @@ local replicatedStorage = game:GetService("ReplicatedStorage")
 
 while true do
     if replicatedStorage.Datas[player.UserId].Quest.Value == "" then
-      wait(0.6)
+      wait(0.5)
         if player.Character and player.Character:FindFirstChild("Stats") and player.Character.Stats:FindFirstChild("Ki") then
             local kiValue = player.Character.Stats.Ki.Value
             local maxKiValue = player.Character.Stats.Ki.MaxValue
