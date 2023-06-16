@@ -517,7 +517,34 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+
+                                                                 local args4 = {
+                                                                 [1] = "Destruction Orb",
+                                                                 [2] = true,
+                                                                 [4] = {    
+                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
+                                                                 ["FaceMouse"] = true
+                                                                 }
+                                                                 }
+                                                                 game:GetService("ReplicatedStorage").Package.Events.BigBall:InvokeServer(unpack(args4))
+
+                                                                 local args5 = {
+                                                                 [1] = "Destruction Orb",
+                                                                 [2] = false,
+                                                                 [3] = true,
+                                                                 [4] = {
+                                                                 ["MouseHit"] = CFrame.new(humanoidRootPart.Position),
+                                                                 }
+                                                                 }
+                                                                 game:GetService("ReplicatedStorage").Package.Events.BigBall:InvokeServer(unpack(args5))
+
+                                                                 local args = {
+                                                                 [1] = "Destruction Orb",
+                                                                 [2] = CFrame.new(humanoidRootPart.Position),
+                                                                 }
+                
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("bigboom"):InvokeServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
@@ -986,7 +1013,7 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
