@@ -286,7 +286,7 @@ while true do
         if player.Character and player.Character:FindFirstChild("Stats") and player.Character.Stats:FindFirstChild("Ki") then
             local kiValue = player.Character.Stats.Ki.Value
             local maxKiValue = player.Character.Stats.Ki.MaxValue
-            if kiValue < maxKiValue * 0.05 then
+            if kiValue < maxKiValue * 0.1 then
                 _G.AutoForm = false
             else
                 _G.AutoForm = true
