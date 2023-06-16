@@ -986,7 +986,15 @@ end)
                                                                  [3] = "Blacknwhite27"
                                                                 }
 
-                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))                                                                         
+                                                                 game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("Hak"):InvokeServer(unpack(args))
+
+                                                                local args = {
+                                                                [1] = 1,
+                                                                [2] = true,
+                                                                [3] = CFrame.new(humanoidRootPart.Position),
+                                                                }
+
+                                                                game:GetService("ReplicatedStorage"):WaitForChild("Package"):WaitForChild("Events"):WaitForChild("kb"):FireServer(unpack(args))
 
                                                                 Event:InvokeServer(move, m6)
                                                             end
