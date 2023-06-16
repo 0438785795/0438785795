@@ -289,7 +289,7 @@ while wait(0) do
     end
 
     if _G.AutoForm and game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == "" then
-        wait(1)
+        wait(2)
         local transform = game:GetService("ReplicatedStorage").Package.Events.ta
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
