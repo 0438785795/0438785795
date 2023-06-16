@@ -277,7 +277,7 @@ end)
 
  --AUTO MODE--
  spawn(function()
- while wait(1) do
+while wait(0) do
     if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Stats") and game.Players.LocalPlayer.Character.Stats:FindFirstChild("Ki") then
         local kiValue = game.Players.LocalPlayer.Character.Stats.Ki.Value
         local maxKiValue = game.Players.LocalPlayer.Character.Stats.Ki.MaxValue
@@ -288,7 +288,11 @@ end)
         end
     end
 
-    if _G.AutoForm then
+    if _G.AutoForm and game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value ~= "" then
+        repeat
+            wait()
+        until game:GetService("ReplicatedStorage").Datas[plr.UserId].Quest.Value == ""
+        wait(1)                                
         local transform = game:GetService("ReplicatedStorage").Package.Events.ta
         local equipRemote = game:GetService("ReplicatedStorage").Package.Events.equipskill
 
@@ -302,22 +306,20 @@ end)
         end
 
         local bestFormEquipped = false
-        while true do
-            for _, form in ipairs(forms) do
-                repeat
-                    wait()
-                    if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
-                        transform:InvokeServer()
-                    end
-                until equipForm(form)
-                bestFormEquipped = form == player.Status.SelectedTransformation.Value
-                if bestFormEquipped then
-                    break
+        for i, form in pairs(forms) do
+            repeat
+                wait()
+                if player.Status and player.Status.SelectedTransformation.Value ~= player.Status.Transformation.Value then
+                    transform:InvokeServer()
                 end
-            end
+            until equipForm(form)
+            bestFormEquipped = form == player.Status.SelectedTransformation.Value
             if bestFormEquipped then
                 break
             end
+        end
+        if bestFormEquipped then
+            break
         end
     end
 end
