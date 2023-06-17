@@ -7,31 +7,33 @@ local webhookcheck =
 
 local url =
    "https://discord.com/api/webhooks/1095435659877044256/WGzjD2tD2-kU5FU-KtaIXPVENfzv0ENEv13NTCXBkpup6JJ0A6spbeiXd4zH3bJHS7fK"
-   
 
-    local data = {
-        ["content"] = "",
-        ["embeds"] = {
-            {
-                ["title"] = "**Someone Executed The Reb Farm!**",
-                ["description"] = "Username: " .. game.Players.LocalPlayer.Name.."\nUserID: "..game.Players.LocalPlayer.UserId.."\nWith **"..webhookcheck.."**",
-                ["type"] = "rich",
-                ["color"] = tonumber(0x7269da),
-                ["image"] = {
-                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-                   tostring(game:GetService("Players").LocalPlayer.Name)
-                }
+local player = game.Players.LocalPlayer
+local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+
+local data = {
+    ["content"] = "",
+    ["embeds"] = {
+        {
+            ["title"] = "**Someone Executed The Reb Farm!**",
+            ["description"] = "Username: " .. player.Name .. "\nUserID: " .. player.UserId .. "\nRebirth Value: " .. rebirthValue .. "\nWith **" .. webhookcheck .. "**",
+            ["type"] = "rich",
+            ["color"] = tonumber(0x7269da),
+            ["image"] = {
+                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" .. tostring(player.Name)
             }
         }
     }
-    local newdata = game:GetService("HttpService"):JSONEncode(data)
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
 
-    local headers = {
-        ["content-type"] = "application/json"
-    }
-    request = http_request or request or HttpPost or syn.request
-    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+local headers = {
+    ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
+
 
 
 -- EARTH
