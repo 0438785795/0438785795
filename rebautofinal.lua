@@ -16,7 +16,7 @@ local data = {
     ["embeds"] = {
         {
             ["title"] = "**Someone Executed The Reb Farm!**",
-            ["description"] = "Username: " .. player.Name .. "\nUserID: " .. player.UserId .. "\nRebirth Value: " .. rebirthValue .. "\nWith **" .. webhookcheck .. "**",
+            ["description"] = "Username: " .. player.Name .. "\nUserID: " .. player.UserId .. "\nRebirth: " .. rebirthValue .. "\nWith **" .. webhookcheck .. "**",
             ["type"] = "rich",
             ["color"] = tonumber(0x7269da),
             ["image"] = {
