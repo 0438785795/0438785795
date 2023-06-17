@@ -1,39 +1,38 @@
 local webhookcheck =
-   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
-   secure_load and "Sentinel" or
-   KRNL_LOADED and "Krnl" or
-   SONA_LOADED and "Sona" or
-   "Kid with shit exploit"
+	is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+	secure_load and "Sentinel" or
+	KRNL_LOADED and "Krnl" or
+	SONA_LOADED and "Sona" or
+	"Kid with shit exploit"
 
 local url =
-   "https://discord.com/api/webhooks/1095435659877044256/WGzjD2tD2-kU5FU-KtaIXPVENfzv0ENEv13NTCXBkpup6JJ0A6spbeiXd4zH3bJHS7fK"
+	"https://discord.com/api/webhooks/1095435659877044256/WGzjD2tD2-kU5FU-KtaIXPVENfzv0ENEv13NTCXBkpup6JJ0A6spbeiXd4zH3bJHS7fK"
 
-local player = game.Players.LocalPlayer
-local rebirthValue = game:GetService("ReplicatedStorage").Datas[player.UserId].Rebirth.Value
+local rebirth = game.ReplicatedStorage.Datas[game.Players.LocalPlayer.UserId].Rebirth.Value
 
 local data = {
-    ["content"] = "",
-    ["embeds"] = {
-        {
-            ["title"] = "**Someone Executed The Reb Farm!**",
-            ["description"] = "Username: " .. player.Name .. "\nUserID: " .. player.UserId .. "\nRebirth: " .. rebirthValue .. "\nWith **" .. webhookcheck .. "**",
-            ["type"] = "rich",
-            ["color"] = tonumber(0x7269da),
-            ["image"] = {
-                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" .. tostring(player.Name)
-            }
-        }
-    }
+	["content"] = "**Script Execution**",
+	["embeds"] = {
+		{
+			["title"] = "Type: Rebirth Farm",
+			["description"] = "User Data:\n ```fix\nUsername: "..game.Players.LocalPlayer.Name.."\nUserID: "..game.Players.LocalPlayer.UserId.."\nRebirths: "..rebirth.."\nExecutor: "..webhookcheck.."```",
+			["type"] = "rich",
+			["color"] = tonumber(0x7269da),
+			["image"] = {
+				["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+					tostring(game:GetService("Players").LocalPlayer.Name)
+			}
+		}
+	}
 }
 local newdata = game:GetService("HttpService"):JSONEncode(data)
 
 local headers = {
-    ["content-type"] = "application/json"
+	["content-type"] = "application/json"
 }
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-
 
 
 -- EARTH
