@@ -57,7 +57,7 @@ _G.Settings = {
     ["Low Rendering"] = true, -- Lower Rendering
     ["Low Quality Parts"] = true -- Lower quality parts
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/0438785795/fpsbootser/main/nocrash"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0438785795/fpsbootser/main/nocrash.lua"))()
 
 -- EARTH
 
