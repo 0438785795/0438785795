@@ -600,7 +600,29 @@ local clickLoopThread = nil
 local function clickLoop()
     while Reb do 
         wait()
+        local player = game.Players.LocalPlayer
+        local rebValue = game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value
+
         game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+
+        while rebValue >= game.ReplicatedStorage.Datas[player.UserId].Rebirth.Value and Reb do
+            game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
+            wait(0.01)
+        end
+        wait(0.5)
+
+        if not Reb then
+            break
+        end
+
+        local args = {
+            [1] = "Earth"
+        }
+
+        while Reb do
+            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+            wait(2)
+        end
     end
 end
 
