@@ -726,8 +726,8 @@ if game.PlaceId == 5151400895 then
             setfpscap(value)
         end,
         Min = 10,
-        Max = 1000,
-        Def = 1000
+        Max = 240,
+        Def = 240
     })
 
     
