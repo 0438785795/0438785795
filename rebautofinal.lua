@@ -635,7 +635,7 @@ local function clickLoop()
             game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
             wait(0.01)
         end
-        wait(0.5)
+        wait(1)
 
         if not Reb then
             break
@@ -1129,7 +1129,7 @@ local function clickLoop()
             game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer()
             wait(0.01)
         end
-        wait(0.5)
+        wait(1)
 
         if not Reb then
             break
