@@ -389,13 +389,14 @@ while true do
     wait() -- Wait before checking the condition again
 end
 end)
-        
+        spawn(function()
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
+	end)
         
-        
+        spawn(function()
         local plr = game.Players.LocalPlayer
          plr.CharacterRemoving:Connect(function()
                       wait(3)
@@ -403,7 +404,8 @@ end)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
          game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
-                  end) 
+                  end)
+		  end)
                     spawn(function()
                     local player = game.Players.LocalPlayer
                     if player.Character and player.Character:FindFirstChild("Stats") then
@@ -898,13 +900,14 @@ end
 spawn(restartOnUnequip)
 end)
 
-        
+        spawn(function()
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
-        
-        
+	end)
+
+	spawn(function()
         local plr = game.Players.LocalPlayer
          plr.CharacterRemoving:Connect(function()
                       wait(3)
@@ -912,7 +915,8 @@ end)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
          game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
          game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
-                  end) 
+                  end)
+		  end)
                     spawn(function()
                     local player = game.Players.LocalPlayer
                     if player.Character and player.Character:FindFirstChild("Stats") then
