@@ -647,7 +647,7 @@ local function clickLoop()
 
         while Reb do
             game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-            wait(2)
+            wait()
         end
     end
 end
@@ -1141,7 +1141,7 @@ local function clickLoop()
 
         while Reb do
             game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
-            wait(2)
+            wait()
         end
     end
 end
