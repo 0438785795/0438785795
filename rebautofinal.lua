@@ -549,7 +549,7 @@ end)
                                                     end
 
                                                     if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 2))
+                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 3))
                                                         if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" or game:GetService("ReplicatedStorage").Package.Events.reb:InvokeServer() then
                                                       _G.Looping = false
                                                       break
@@ -1042,7 +1042,7 @@ end)
                                                     end
 
                                                     if humanoidRootPart and humanoidRootPart:IsDescendantOf(workspace.Living) and game:GetService("Workspace").Living[player.Name].HumanoidRootPart then
-                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 2))
+                                                       player.Character:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, 3))
                                                         if game:GetService("ReplicatedStorage").Datas[player.userId].Quest.Value == "" then
                                                       _G.Looping = false
                                                       break
