@@ -900,6 +900,37 @@ end
 spawn(restartOnUnequip)
 end)
 
+spawn(function() 
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local function teleport()
+    local playerId = player.UserId
+    local strength = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Strength.Value
+    local energy = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Energy.Value
+    local defense = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Defense.Value
+    local speed = game:GetService("ReplicatedStorage").Datas[tostring(playerId)].Speed.Value
+
+    if strength < 120000000 and energy < 120000000 and defense < 120000000 and speed < 120000000 then
+        local success, error = pcall(function()
+            local args = {[1] = "Earth"}
+            game:GetService("ReplicatedStorage").Package.Events.TP:InvokeServer(unpack(args))
+        end)
+
+        if not success then
+            warn("Failed to invoke server function:", error)
+        end
+    end
+end
+
+teleport() -- Call the function once initially
+
+while true do
+    wait()
+    teleport() -- Call the function again every 7 seconds
+end 
+end) 
+
         spawn(function()
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Space", false, uwu)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, "Space", false, uwu)
