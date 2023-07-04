@@ -165,7 +165,7 @@ while continueLoop do
     end
 
     -- First block of code
-    if game:GetService("Workspace").Living[playerName].Stats.Strength.Value < 100000 then
+    if game:GetService("Workspace").Living[playerName].Stats.Strength.Value < 140000 then
         local args1 = {
             [1] = "Blacknwhite27",
             [2] = 1
@@ -175,7 +175,7 @@ while continueLoop do
     end
 
     -- Second block of code - only invoke if defense is less than 100,000
-    if game:GetService("Workspace").Living[playerName].Stats.Defense.Value < 100000 then
+    if game:GetService("Workspace").Living[playerName].Stats.Defense.Value < 140000 then
         local args2 = {
             [1] = "Blacknwhite27"
         }
@@ -184,7 +184,7 @@ while continueLoop do
     end
 
     -- Third block of code - only invoke if energy is less than 100,000
-    if game:GetService("Workspace").Living[playerName].Stats.Energy.Value < 100000 then
+    if game:GetService("Workspace").Living[playerName].Stats.Energy.Value < 140000 then
         local args3 = {
             [1] = 1,
             [2] = true,
@@ -195,7 +195,7 @@ while continueLoop do
     end
 
     -- Fourth block of code
-    if game:GetService("Workspace").Living[playerName].Stats.Speed.Value < 100000 then
+    if game:GetService("Workspace").Living[playerName].Stats.Speed.Value < 140000 then
         local args4 = {
             [1] = "Blacknwhite27"
         }
