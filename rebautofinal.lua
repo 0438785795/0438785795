@@ -136,7 +136,7 @@ local function checkConditions(player)
     local speed = game:GetService("Workspace").Living[player].Stats.Speed.Value
     local defence = game:GetService("Workspace").Living[player].Stats.Defense.Value
     local energy = game:GetService("Workspace").Living[player].Stats.Energy.Value
-    return strength >= 150000 and speed >= 150000 and defence >= 150000 and energy >= 150000
+    return strength >= 140000 and speed >= 140000 and defence >= 140000 and energy >= 140000
 end
 
 -- Set the player name to the local player's name
