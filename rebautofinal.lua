@@ -436,6 +436,7 @@ end)
                             workspace.Others.NPCs["Perfect Atom"],
                             workspace.Others.NPCs["Chilly"],
                             workspace.Others.NPCs["Top X Fighter"],
+			    workspace.Others.NPCs["X Fighter Master"],
                             workspace.Others.NPCs["Mapa"],
                             workspace.Others.NPCs["Radish"],
                             workspace.Others.NPCs["Kid Nohag"],
