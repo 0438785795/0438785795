@@ -116,7 +116,7 @@ if game.PlaceId == 3311165597 then
         end,
         Min = 10,
         Max = 240,
-        Def = 240
+        Def = 60
     })
 
     
@@ -727,7 +727,7 @@ if game.PlaceId == 5151400895 then
         end,
         Min = 10,
         Max = 240,
-        Def = 240
+        Def = 60
     })
 
     
